@@ -1,0 +1,81 @@
+.btn{
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.41;
+  letter-spacing: normal;
+  text-align: right;
+  color: #fff
+}
+.login_btn{
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: right;
+  color: #fff;
+}
+.Become-a-Helper {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: right;
+    color: #fff;
+  }
+
+  .for_text{
+    width: 388px;
+    height: 46px;
+    margin: 190px 120px 22px 41px;
+    font-family: Roboto;
+    font-size: 50px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+  }
+  .for_text{
+    width: 388px;
+    height: 46px;
+    font-family: Roboto;
+    font-size: 50px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+  }
+
+
+
+
+
+@media only screen and (max-width: 800px) {
+    .fo_nav{
+      display: flex;
+      flex-direction: column; 
+      padding-left: 100px;
+    }
+    .logo{
+        padding-top: 40px;
+    }
+    .ico{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .inst{
+        margin-left: 9px;
+    }
+  }

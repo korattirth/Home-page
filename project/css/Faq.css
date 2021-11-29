@@ -1,0 +1,56 @@
+.nav_bar{
+  width: 1560px;
+  height: 64px;
+  padding: 6px 15px 4px;
+  opacity: 0.8;
+  background-color:#525252;
+}
+
+.inst{
+    font: 16px;color: #646464;
+    font-weight: bold;
+    line-height: 3.25;
+}
+.aro{
+    transform: rotate(90deg);
+}
+
+.hori_line_1{
+    width: 20px;
+    background-color: black;
+    margin-right: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}
+.hori_line_2{
+    width: 20px;
+    background-color: black;
+    margin-left: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}
+.Faqs {
+    margin-top: 40px;
+    margin-bottom: 14px;
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+  }
+  .sec_btn {
+    width: 472px;
+    height: 66px;
+    background-color: #1d7a8c;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+  }
