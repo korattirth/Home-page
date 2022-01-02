@@ -1,0 +1,502 @@
+/* navbar */
+.back_img_banner{
+    background-image: url(../img/becomservices.png);
+    min-height: 930px;
+    background-position: center;
+    background-size: cover;
+}
+.nav_bar{
+    width: 100%;
+}
+.main_logo{
+    width: 156px;
+    height: 120px;
+}
+.book_now{
+    width: 111px;
+    height: 40px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.book_now_text{
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.41;
+    letter-spacing: normal;
+    text-align: right;
+    color: #ffff;
+}
+.pri_ser{
+    width: 161px;
+    height: 40px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    margin-right: 28px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.login{
+    width: 83px;
+    height: 40px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.login_text{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: right;
+  color: #ffff;
+}
+.other_btn{
+    margin-right: 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* form */
+.ragister_text{
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+  margin-bottom: 26px;
+  margin-top: 20px;
+}
+.for_ragister{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 38px;
+}
+.ragister_form{
+    height: 620px;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+}
+input::placeholder{
+    color: #A0A0A0  ;
+}
+.for_input,.for_input_phone{
+    width: 359px;
+    height: 46px;
+    margin-bottom: 15px;
+    border: solid 1px #c8c8c8;
+}
+.for_input_phone{
+    width: 310px;
+}
+.fixed_phone_val{
+    width: 46px;
+    height: 46px;
+    border: solid 1px #c8c8c8;  
+    background-color: #c8c8c8;
+}
+.for_cheakbox{
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
+}
+.for_cheakbox_text{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+  margin-left: 7px;
+}
+.for_main_robot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.for_robot{
+    width: 302px;
+    height: 76px;
+    border: 1px solid #F4F5F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    background-color: #F4F5F8;
+}
+.for_form_btn{
+    width: 166px;
+    height: 46px;
+    color: white;
+    background-color: #1D7A8C;
+    font-size: 16px;
+    border-radius: 23px;
+    border: none;
+    margin-bottom: 19px;
+}
+
+.for_arrow{
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    margin-top: 44px;
+}
+
+/* How it work */
+.main_for_work{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 68px;
+}
+.sub_work{
+    padding-left: 20px;
+}
+.first_child_text{
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.45;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+  margin-bottom: 66px;
+}
+.secound_child_work{
+    display: flex;
+}
+.for_work_text{
+    margin-right: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.for_work_text2{
+    margin-left: 126px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.work_text_head{
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+.for_work_text_body{
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+.for_work_img{
+    margin-bottom: 40px;
+}
+
+/* background image */
+.back_img1{
+    position: absolute;
+    left: 0px;
+    top: 27px;
+    z-index: -1;
+}
+.back_img2{
+    position: absolute;
+    left: 0px;
+    top: 461px;
+    z-index: -1;
+}
+.back_img3{
+    position: absolute;
+    left: 0px;
+    top: 866px;
+    z-index: -1;
+}
+.back_img4{
+    position: absolute;
+    right: 0px;
+    top: 27px;
+    z-index: -1;
+}
+.back_img5{
+    position: absolute;
+    right: 0px;
+    top: 461px;
+    z-index: -1;
+}
+.back_img6{
+    position: absolute;
+    right: 0px;
+    top: 866px;
+    z-index: -1;
+}
+
+/* get our new sellers */
+.seller_text{
+    font-size: 18px;
+    color: #353548;
+    font-weight: 500;
+    line-height: 1.22;
+    margin-top: 47px;
+}
+.for_email {
+    border-radius: 20px;
+    border: 1px solid #565656;
+    width: 233px;
+    height: 40px;
+}
+.for_submit{
+    border-radius: 20px;
+    background-color:#FF7B6D;
+    border: none; 
+    width: 88px;
+    height: 40px;  
+    font-family:Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.sellr_main_div{
+    margin-bottom: 54px;
+    margin-top: 77px;
+}
+
+/* footer */
+.for_footer{
+    background-color: #111;
+}
+.perent_footer{
+    display: flex;
+    padding-top: 20px;
+}
+.first_child{
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer_logo{
+    width: 120px;
+    height: 92px;
+}
+.secound_child{
+    flex: 60%;
+}
+.footer_ul{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    justify-content: center;
+    padding-top: 34px;
+}
+.footer_nav{
+    letter-spacing: 0px;
+    color: #F1F1F1;
+    margin: 0px 10px;
+}
+.third_child{
+    flex: 20%;
+    text-align: center;
+}
+.for_insta{
+    font-size:20px;
+    color: white; 
+    transform: translateY(35px); 
+}
+.for_facebook{
+    font-size:20px;
+    color: white; 
+    transform: translateY(35px); 
+    margin-right: 20px;   
+}
+.hr_4{
+    width: 1320px;
+    height: 1px;
+    background-color: #424242;
+    max-width: 100%;
+}
+.term_con{
+    color: #9BA0A3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only Screen and (max-width:753px){
+    .for_work_text{
+        margin-right: 90px;
+    }
+    .for_work_img2{
+        margin-right: 20px;
+    }
+    .footer_ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer_ul{
+        padding: 0;
+    }
+    .third_child{
+        flex-direction: column;
+    }
+}
+@media only Screen and (max-width:660px){
+    .for_work_text{
+        margin-right: 60px;
+    }
+    .for_work_text2{
+        margin-left: 50px;
+    }
+}
+@media only Screen and (max-width:470px){
+    .for_work_text{
+        margin-right: 20px;
+    }
+    .for_work_text2{
+        margin-left: 20px;
+    }
+    .work_img1{
+        height: 180px;
+        width: 180px;
+    }
+}
+@media only Screen and (max-width:455px){
+    .for_input{
+        width: 250px;
+        margin: auto;
+    }
+    .for_phone{
+        margin: auto;
+    }
+    .for_input_phone{
+        width: 200px;
+    }
+    .ragister_form{
+        width: 348px;
+        height: auto;
+        align-items: center;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .for_cheakbox{
+        margin-bottom: auto;
+    }
+    .for_robot{
+        width: auto;
+        height: auto;
+    }
+    .for_facebook{
+        margin-right: 0;
+    }
+}
+@media only Screen and (max-width:311px){
+    .ragister_form{
+        width: 280px;
+    }
+    .for_input{
+        width: 150px;
+        margin: auto;
+    }
+    .for_phone{
+        margin: auto;
+    }
+    .for_input_phone{
+        width: 100px;
+    }
+}
+
+@media only Screen and (max-width:365px){
+    .ragister_form{
+        width: 280px;
+    }
+    .work_img1{
+        height: 130px;
+        width: 130px;
+    }
+}
+@media only Screen and (max-width:286px){
+    .ragister_form{
+        width: 250px;
+    }
+    .footer_logo{
+        width: 90px;
+        height: 60px;
+    }
+    .first_child_text{
+        line-height: 1;
+    }
+    .work_img1{
+        height: 80px;
+        width: 80px;
+    }
+    .perent_footer{
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+    }
+    .footer_logo{
+        margin-bottom: 20px;
+    }
+    .for_email{
+        width: 150px;
+    }
+}
