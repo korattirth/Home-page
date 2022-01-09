@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- bootstrp link -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+      <!-- for text -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+      <!-- css file -->
+     <link rel="stylesheet" href="./css/adminUserManagement.css">
+    <title>Admin User Management</title>
+</head>
+<body>
+    <section>
+        <nav class="navbar navbar-expand-md  navbar-dark nav_bar">
+            <h1>helperland</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto" style="align-items: center;">
+                    <li class="nav-item">
+                        <a href="">
+                            <div class="profile_img">
+                                <img src="./img/forma-22.png" alt="">
+                                <p>james Smith</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <i class='fa fa-power-off'></i>
+                        </a>
+                    </li>
+                  </ul>
+            </div>  
+        </nav>
+    </section>
+
+    <section>
+        <div class="main_div">
+            <div class="sub_div">
+                <div class="perent_div">
+                    <div class="child1_div">
+                        <div class="services">
+                            <p class="services_text">Services Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Services History</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Role Management</p>
+                        </div>
+                        <div class="services more">
+                            <p class="services_text">Coupon Code Management</p>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Escalation Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Service Request</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Services Provider</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text" style="color: #1fb6ff;">User Management</p>
+                        </div>
+                        <div class="services more">
+                            <p class="services_text">Finance Module</p>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Zip Code Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Rating Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Inquiry Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Newsletter Management</p>
+                        </div>
+                        <div class="services more">
+                            <p class="services_text">Content Management</p>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="child2_div">
+                        <div class="user_management_div">
+                            <h2>User Management</h2>
+                            <div>
+                                <img src="./img/vector-smart.png" alt="">
+                                <p>Add New User</p>
+                            </div>
+                        </div>
+
+                        <div class="for_form">
+                            <div class="input_1">
+                                <input type="text" placeholder="User Name">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="input_1">
+                                <input type="text" placeholder="User role">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="input_2">
+                                <input type="text" value="+49" class="fixed_val"><input type="text" placeholder="Mobile number" class="input_phone">
+                            </div>
+                            <div class="input_1">
+                                <input type="text" placeholder="Zip Code">
+                            </div>
+                            <div>
+                                <button class="serch_btn">Serch</button>
+                            </div>
+                            <div>
+                                <button class="clear_btn">Clear</button>
+                            </div>
+                        </div>
+
+                        <div class="table_res">
+                            <table style="position: relative;">
+                                <!-- row-1 -->
+                                <tr class="row_1">
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">User Name</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">User Type</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Role</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Postal Code</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">City</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Radius</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">User Status</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Action</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Inquiry manager</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">10 Km</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction()"></i>
+                                            <div id="dot">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction1()"></i>
+                                            <div id="dot1">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Inquiry manager</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction2()"></i>
+                                            <div id="dot2">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction3()"></i>
+                                            <div id="dot3">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction4()"></i>
+                                            <div id="dot4">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Contact manager</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction5()"></i>
+                                            <div id="dot5">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction6()"></i>
+                                            <div id="dot6">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2"></p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn" style="background-color: #ff6b6b;">Inactive</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction7()"></i>
+                                            <div id="dot7">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">Lyum Watson</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                            <p class="text2">Call Center</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Finance manager</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">123456</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">Berlin</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-4 -->
+                                    <td  class="colum_man">
+                                        <div>
+                                        <p class="text2">20 Km</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Active</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div class="main_row_col">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" onclick="myFunction8()"></i>
+                                            <div id="dot8">
+                                                <p>Edit</p>
+                                                <p>Deactivate</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="page_num">
+                                <div class="left_page">
+                                    <p class="text3">Show</p>
+                                    <div>
+                                        <p class="text3">10</p>
+                                        <i class="fa fa-chevron-down" style="margin-left: 7px;"></i>
+                                    </div>
+                                    <p class="text3">Entries</p>
+                                </div>
+                                <div class="right_page">
+                                    <div class="page_round">
+                                        <i class="fa fa-caret-left"></i>
+                                    </div>
+                                    <div class="page_round" style="background-color: #565656;color: white;">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>3</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>4</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <i class="fa fa-caret-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="footer_text">
+                                <p>©2018 Helperland. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Bootstrp link -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const nav=document.querySelector('.nav_bar')
+        window.addEventListener('scroll', fixnav)
+        function fixnav(){
+            if(window.scrollY>nav.offsetHeight+200){
+                nav.classList.add('active')    
+            }
+            else{
+                nav.classList.remove('active')
+            }
+        }
+        function myFunction() {
+        var x = document.getElementById("dot");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction1() {
+        var x = document.getElementById("dot1");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction2() {
+        var x = document.getElementById("dot2");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction3() {
+        var x = document.getElementById("dot3");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction4() {
+        var x = document.getElementById("dot4");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction5() {
+        var x = document.getElementById("dot5");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction6() {
+        var x = document.getElementById("dot6");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction7() {
+        var x = document.getElementById("dot7");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        function myFunction8() {
+        var x = document.getElementById("dot8");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+    </script>
+    
+</body>
+</html>
