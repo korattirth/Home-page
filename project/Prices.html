@@ -276,6 +276,18 @@
     </div>
     </section>
 
+    <script>
+        const nav=document.querySelector('.nav_bar')
+        window.addEventListener('scroll', fixnav)
+        function fixnav(){
+            if(window.scrollY>nav.offsetHeight+150){
+                nav.classList.add('active')    
+            }
+            else{
+                nav.classList.remove('active')
+            }
+        }
+    </script>
       <!-- Bootstrp link -->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
