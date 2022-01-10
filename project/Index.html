@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- css file -->
-    <link rel="stylesheet" href="./css/indecx.css">
+    <link rel="stylesheet" href="./css/Home.css">
     <title>Home</title>
 </head>
 <body>
@@ -343,7 +343,20 @@
         </div>
     </section>
 
-    <!-- Bootstrp link -->
+    <script>
+        const nav=document.querySelector('.nav_bar')
+        window.addEventListener('scroll', fixnav)
+        function fixnav(){
+            if(window.scrollY>nav.offsetHeight+150){
+                nav.classList.add('active')    
+            }
+            else{
+                nav.classList.remove('active')
+            }
+        }
+    </script>
+
+<!-- Bootstrp link -->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
