@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- bootstrp link -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+      <!-- for text -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+      <!-- css file -->
+     <link rel="stylesheet" href="./css/adminServicesrequest.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <nav class="navbar navbar-expand-md  navbar-dark nav_bar">
+            <h1>helperland</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto" style="align-items: center;">
+                    <li class="nav-item">
+                        <a href="">
+                            <div class="profile_img">
+                                <img src="./img/forma-22.png" alt="">
+                                <p>james Smith</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <i class='fa fa-power-off'></i>
+                        </a>
+                    </li>
+                  </ul>
+            </div>  
+        </nav>
+    </section>
+
+    <section>
+        <div class="main_div">
+            <div class="sub_div">
+                <div class="perent_div">
+                    <div class="child1_div">
+                        <div class="services">
+                            <p class="services_text">Services Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Role Management</p>
+                        </div>
+                        <div class="services" id="menu_1">
+                            <div class="more">
+                                <p class="services_text">Coupon Code Management</p>
+                                <i class="fa fa-angle-right" id="flip1"></i>
+                            </div>
+                            <div id="panel1">
+                                <p>Coupon codes</p>
+                                <p>Usage History</p>
+                            </div>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Escalation Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text"  style="color: #1fb6ff;">Service Request</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Services Provider</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">User Management</p>
+                        </div>
+                        <div class="services" id="menu_2">
+                            <div class="more">
+                                <p class="services_text">Finance Module</p>
+                                <i class="fa fa-angle-right" id="flip2"></i>
+                            </div>
+                            <div id="panel2">
+                                <p>All Transaction</p>
+                                <p>Generate Payment</p>
+                                <p>Customer Invoices</p>
+                            </div>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Zip Code Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Rating Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Inquiry Management</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Newsletter Management</p>
+                        </div>
+                        <div class="services" id="menu_3">
+                            <div class="more">
+                                <p class="services_text">Content Management</p>
+                                <i class="fa fa-angle-right" id="flip3"></i>
+                            </div>
+                            <div id="panel3">
+                                <p>Blog</p>
+                                <p>Faqs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="child2_div">
+                        <div class="user_management_div">
+                            <h2>User Management</h2>
+                            <div>
+                                <img src="./img/vector-smart.png" alt="">
+                                <p>Add New User</p>
+                            </div>
+                        </div>
+
+                        <div class="for_form">
+                            <div class="input_1">
+                                <input type="text" placeholder="Services Id">
+                            </div>
+                            <div class="input_1">
+                                <input type="text" placeholder="Customer">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="input_1" style="width: 152px;">
+                                <input type="text" placeholder="Services Provider">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="input_1">
+                                <input type="text" placeholder="Status">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="input_1" style="width: 135px;">
+                                <img src="./img/calculator.png" alt="">
+                                <input type="text" placeholder="From Date">
+                            </div>
+                            <div class="input_1">
+                                <img src="./img/calculator.png" alt="">
+                                <input type="text" placeholder="To Date">
+                            </div>
+                            <div>
+                                <button class="serch_btn">Serch</button>
+                            </div>
+                            <div>
+                                <button class="clear_btn">Clear</button>
+                            </div>
+                        </div>
+
+                        <div class="table_res">
+                            <table style="position: relative;">
+                                <!-- row-1 -->
+                                <tr class="row_1">
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Services Id</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Services Data</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col" style="justify-content: flex-start;">
+                                            <p class="text1">Customer Details</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Services Provider</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="main_row_col">
+                                            <p class="text1">Status</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Action</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="new_btn">New</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id"></i>
+                                            <div id="dot">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                    
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="new_btn">New</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id1"></i>
+                                            <div id="dot1">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="pending_btn">Pending</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id2"></i>
+                                            <div id="dot2">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="pending_btn">Pending</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id3"></i>
+                                            <div id="dot3">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Completed</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id4"></i>
+                                            <div id="dot4">
+                                                <p>Refund</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Completed</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id5"></i>
+                                            <div id="dot5">
+                                                <p>Refund</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="cancel_btn">Cancel</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id6"></i>
+                                            <div id="dot6">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Completed</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id7"></i>
+                                            <div id="dot7">
+                                                <p>Refund</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="active_btn">Completed</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id8"></i>
+                                            <div id="dot8">
+                                                <p>Refund</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                    <div>
+                                        <p class="text2">395006</p>
+                                    </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="main_row_col" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="for_add" >
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="for_add" style="margin-top: 7px;">
+                                            <img src="./img//layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-23.png" alt="">
+                                                  <img src="./img//forma-25.png" alt="">
+                                                  <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-5 -->
+                                    <td  class="colum_man">
+                                        <div class="main_row_col">
+                                            <p class="cancel_btn">Cancel</p>
+                                        </div>
+                                    </td>
+                                    <td  class="colum_man">
+                                    <!-- colum-6 -->
+                                        <div  class="main_row_col" style="position: relative;">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id9"></i>
+                                            <div id="dot9">
+                                                <p>Edit & Reschedule</p>
+                                                <p>Refund</p>
+                                                <p>Cancel</p>
+                                                <p>Change Sp</p>
+                                                <p>Escalate</p>
+                                                <p>History Log</p>
+                                                <p>Download Invoice</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="page_num">
+                                <div class="left_page">
+                                    <p class="text3">Show</p>
+                                    <div>
+                                        <p class="text3">10</p>
+                                        <i class="fa fa-chevron-down" style="margin-left: 7px;"></i>
+                                    </div>
+                                    <p class="text3">Entries</p>
+                                </div>
+                                <div class="right_page">
+                                    <div class="page_round">
+                                        <i class="fa fa-caret-left"></i>
+                                    </div>
+                                    <div class="page_round" style="background-color: #565656;color: white;">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>3</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <p>4</p>
+                                    </div>
+                                    <div class="page_round">
+                                        <i class="fa fa-caret-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="footer_text">
+                                <p>©2018 Helperland. All rights reserved.</p>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Bootstrp link -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#flip1").click(function(){
+                $("#flip1").toggleClass("rotate");
+                $("#menu_1").toggleClass("back");
+                $("#panel1").slideToggle("slow");
+            });
+            $("#flip2").click(function(){
+                $("#flip2").toggleClass("rotate");
+                $("#menu_2").toggleClass("back");
+                $("#panel2").slideToggle("slow");
+            });
+            $("#flip3").click(function(){
+                $("#flip3").toggleClass("rotate");
+                $("#menu_3").toggleClass("back");
+                $("#panel3").slideToggle("slow");
+            });
+            $("#status_id").click(function(){
+                $("#dot").slideToggle("slow");
+            })
+            $("#status_id1").click(function(){
+                $("#dot1").slideToggle("slow");
+            })
+            $("#status_id2").click(function(){
+                $("#dot2").slideToggle("slow");
+            })
+            $("#status_id3").click(function(){
+                $("#dot3").slideToggle("slow");
+            })
+            $("#status_id4").click(function(){
+                $("#dot4").slideToggle("slow");
+            })
+            $("#status_id5").click(function(){
+                $("#dot5").slideToggle("slow");
+            })
+            $("#status_id6").click(function(){
+                $("#dot6").slideToggle("slow");
+            })
+            $("#status_id7").click(function(){
+                $("#dot7").slideToggle("slow");
+            })
+            $("#status_id8").click(function(){
+                $("#dot8").slideToggle("slow");
+            })
+            $("#status_id9").click(function(){
+                $("#dot9").slideToggle("slow");
+            })
+        });
+
+        const nav=document.querySelector('.nav_bar')
+            window.addEventListener('scroll', fixnav)
+            function fixnav(){
+            if(window.scrollY>nav.offsetHeight+200){
+                nav.classList.add('active')    
+            }
+            else{
+                nav.classList.remove('active')
+            }
+    }
+    </script>
+</body>
+</html>
