@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <link rel="stylesheet" href="~/css/Contact.css" />
+    <!-- main section -->
+    <section>
+        <!-- navbar -->
+        
+        <!-- banner img -->
+        <img src="~/img/contact.png" class="responsive_img" alt="">
+    </section>
+
+    <!-- contact us -->
+    <section>
+        <div class="container">
+            <div class="contact_text">
+                <p class="contact">Contact Us</p>
+                <div class="design_star" style="display:flex;justify-content:center">
+                    <hr class="line_1">
+                    <img src="~/img/separator.png" style="width:24px;height:25px;" alt="">
+                    <hr class="line_2">
+                </div>
+            </div>
+            <div class="contact_perent">
+                <div class="contact_child1">
+                    <div style="margin-bottom: 20px;">
+                        <img src="~/img/location.png" alt="">
+                    </div>
+                    <div>
+                        <p class="contct_child_text1">1111 Lorem ipsum text 100,<br> Lorem ipsum AB</p>
+                    </div>
+                </div>
+                <div class="contact_child1">
+                    <div style="margin-bottom: 21px;">
+                        <img src="~/img/phone-call.png" alt="">
+                    </div>
+                    <p class="contct_child_text2">+49 (40) 123 56 7890 <br> +49 (40) 987 56 0000</p>
+                </div>
+                <div class="contact_child1">
+                    <div style="margin-bottom: 28px;">
+                        <img src="~/img/vector-smart-object.png" alt="">
+                    </div>
+                    <p class="contct_child_text3">info@helperland.com </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- hr line -->
+        <hr class="hori_line_3">
+
+        <!-- get in touch with us -->
+        <div class="container-fluid">
+            <div class="form_text">Get in touch with us</div>
+            <div class="form_contact">
+                <div>
+                    <input type="text" placeholder="First Name" class="input_name">
+                    <input type="text" placeholder="Last Name" class="input_name"><br>
+                </div>
+                <div>
+                    <input type="text" value="+49" class="fixed_val"><input type="text" placeholder="Mobile number" class="input_phone">
+                    <input type="email" name="" id="" placeholder="Enter Email" class="input_name">
+                </div>
+                <select name="" id="">
+                    <option value="">Subject-1</option>
+                    <option value="">Subject-1</option>
+                    <option value="">Subject-1</option>
+                    <option value="">Subject-1</option>
+                    <option value="">Subject-1</option>
+                </select><br>
+                <textarea name="" id="" cols="74" rows="5" placeholder="Message"></textarea>
+                <input type="submit" value="Submit" class="sub_btn">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <!-- for map -->
+        <div>
+            <img src="~/img/group-16.png" alt="" class="map_img">
+        </div>
+
+        <!-- get our new seller -->
+        <div class="sellr_main_div">
+            <div style="text-align: center;">
+                <p class="seller_text">GET OUR NEWSLETTER</p>
+                <input type="email" placeholder="Your Email" class="for_email">
+                <input type="submit" class="for_submit">
+            </div>
+        </div>
+    </section>
+</body>

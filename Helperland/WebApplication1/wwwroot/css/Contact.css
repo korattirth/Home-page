@@ -1,0 +1,381 @@
+﻿
+/* banner img */
+.responsive_img {
+    width: 100%;
+    height: auto;
+    margin-top: 65px;
+}
+
+/* contact us */
+.contact {
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+    margin-top: 31px;
+}
+
+.design_star {
+    display: flex;
+    align-items: center;
+}
+
+.line_1 {
+    margin-right: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.line_2{
+    margin-left: 5px;
+    width: 62px;
+    height: 10px;
+    background-color: #ccc;
+}
+
+.contact_perent {
+    display: flex;
+    text-align: center;
+    margin-top: 52px;
+}
+
+.contact_child1 {
+    flex: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_child2 {
+    flex: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_child3 {
+    flex: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contct_child_text1, .contct_child_text2, .contct_child_text3 {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #4f4f4f;
+    text-align: center
+}
+/* hr line */
+.hori_line_3 {
+    width: 1140px;
+    height: 1px;
+    text-align: center;
+    background-color: #e1e1e1;
+    margin-top: 76px;
+}
+
+/* get in touch with us */
+.form_text {
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.86;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.form_contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_name {
+    width: 299px;
+    height: 46px;
+    padding-left: 16px;
+    border: solid 1px #c8c8c8;
+    margin: 0px 7px;
+    margin-bottom: 15px;
+}
+
+.input_phone {
+    width: 242px;
+    height: 46px;
+    border: solid 1px #c8c8c8;
+    padding-left: 16px;
+    margin-right: 7px;
+    margin-bottom: 15px;
+}
+
+.fixed_val {
+    width: 57px;
+    height: 46px;
+    padding: 0;
+    margin: 0;
+    padding-left: 7px;
+    border: solid 1px #c8c8c8;
+    background-color: #c8c8c8;
+    color: #4F4F4F;
+}
+
+select {
+    width: 615px;
+    margin-bottom: 15px;
+    height: 46px;
+    color: #a0a0a0;
+    border: solid 1px #c8c8c8;
+}
+
+.sub_btn {
+    width: 163px;
+    height: 46px;
+    border-radius: 23px;
+    background-color: #1d7a8c;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    text-align: center;
+    margin-top: 15px;
+    border: none;
+    color: white;
+}
+
+textarea {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #a0a0a0;
+    border: solid 1px #c8c8c8;
+}
+
+input::placeholder {
+    color: #A0A0A0;
+    font-size: 16px;
+}
+
+textarea::placeholder {
+    color: #A0A0A0;
+    font-size: 16px;
+}
+
+/* for map */
+.map_img {
+    width: 100%;
+    margin-top: 80px;
+}
+/* get our newsletters */
+.seller_text {
+    font-size: 18px;
+    color: #353548;
+    font-weight: 500;
+    line-height: 1.22;
+    margin-top: 47px;
+}
+
+.for_email {
+    border-radius: 20px;
+    border: 1px solid #565656;
+    width: 233px;
+    height: 40px;
+}
+
+.for_submit {
+    border-radius: 20px;
+    background-color: #FF7B6D;
+    border: none;
+    width: 88px;
+    height: 40px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+.sellr_main_div {
+    margin-bottom: 54px;
+    margin-top: 77px;
+}
+
+
+@media only Screen and (max-width:1160px) {
+    .hori_line_3 {
+        width: 750px;
+    }
+}
+
+@media only Screen and (max-width:772px) {
+    .hori_line_3 {
+        width: 600px;
+    }
+
+    .input_name {
+        width: 249px;
+    }
+
+    .input_phone {
+        width: 192px;
+    }
+
+    select, textarea {
+        width: 525px;
+    }
+}
+
+@media only Screen and (max-width:753px) {
+    .for_work_text {
+        margin-right: 90px;
+    }
+
+    .for_work_img2 {
+        margin-right: 20px;
+    }
+
+    .footer_ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer_ul {
+        padding: 0;
+    }
+
+    .third_child {
+        flex-direction: column;
+    }
+}
+
+@media only Screen and (max-width:630px) {
+    .hori_line_3 {
+        width: 500px;
+    }
+}
+
+@media only Screen and (max-width:564px) {
+    .hori_line_3 {
+        width: 300px;
+    }
+
+    .input_name {
+        width: 199px;
+    }
+
+    .input_phone {
+        width: 142px;
+    }
+
+    select, textarea {
+        width: 415px;
+    }
+}
+
+@media only Screen and (max-width:484px) {
+    .contact_perent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contct_child_text2 {
+        margin-bottom: 50px;
+    }
+}
+
+@media only Screen and (max-width:464px) {
+    .input_name {
+        width: 149px;
+    }
+
+    .input_phone {
+        width: 92px;
+    }
+
+    select, textarea {
+        width: 315px;
+    }
+
+    .for_facebook {
+        margin-right: 0px;
+    }
+}
+
+@media only Screen and (max-width:362px) {
+    .input_name {
+        width: 250px;
+    }
+
+    .input_phone {
+        width: 195px;
+    }
+
+    select, textarea {
+        width: 255px;
+    }
+
+    .form_contact {
+        text-align: center;
+    }
+}
+
+@media only Screen and (max-width:325px) {
+    .hori_line_3 {
+        width: 200px;
+    }
+}
+
+@media only Screen and (max-width:262px) {
+    .hori_line_3 {
+        width: 150px;
+    }
+
+    .perent_footer {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+    }
+
+    .footer_logo {
+        margin-bottom: 20px;
+    }
+
+    .input_name {
+        width: 150px;
+    }
+
+    .input_phone {
+        width: 95px;
+    }
+
+    select, textarea {
+        width: 155px;
+    }
+}

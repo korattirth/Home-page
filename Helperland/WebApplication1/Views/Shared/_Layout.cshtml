@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css/NavAndFooter.css" rel="stylesheet" />
+
+    <!-- for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark nav_bar">
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/white-logo-transparent-background.png" class="main_logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto" style="align-items: center;">
+                <li class="nav-item book_now">
+                    <a class="nav-link book_now_text" href="#"><span class="book_now_text">Book Now</span></a>
+                </li>
+                <li class="nav-item pri_ser">
+                    <a class="nav-link" asp-controller="Home" asp-action="Prices"><span class="book_now_text">Prices & services</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link login" href="#"><span class="login_text">Login</span></a>
+                </li>
+                <li class="nav-item pri_ser">
+                    <a class="nav-link" href="#"><span class="login_text">Become a Helper</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @RenderBody()
+
+    <section>
+        <!-- footer -->
+        <div class="for_footer">
+            <div class="perent_footer">
+                <div class="first_child">
+                    <img src="~/img/white-logo-transparent-background-copy-4.png" alt="" class="footer_logo">
+                </div>
+                <div class="secound_child">
+                    <ul class="footer_ul">
+                        <a asp-controller="Home" asp-action="Index" style="text-decoration:none"><li class="footer_nav">Home</li></a>
+                        <a asp-controller="Home" asp-action="About" style="text-decoration:none"><li class="footer_nav">About</li></a>
+                        <li class="footer_nav">TESTIMONIALS</li>
+                        <a asp-controller="Home" asp-action="faqs" style="text-decoration:none"><LI class="footer_nav">FAQS</LI></a>
+                        <li class="footer_nav" style="text-align: center;">INSURANCE POLICY</li>
+                        <li class="footer_nav">IMPRESSUM</li>
+                    </ul>
+                </div>
+                <div class="third_child">
+                    <i class="fa fa-facebook-square for_facebook"></i>
+                    <i class="fa fa-instagram for_insta"></i>
+                </div>
+            </div>
+            <hr class="hr_4">
+            <div class="term_con">
+                <p>©2018 Helperland. All rights reserved.   Terms and Conditions | Privacy Policy</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

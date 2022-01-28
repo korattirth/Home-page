@@ -1,0 +1,150 @@
+﻿
+/* banner img */
+.responsive_img {
+    width: 100%;
+    height: auto;
+    margin-top: 65px;
+}
+/* About us */
+.about {
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+    margin-top: 32px;
+}
+
+.design_star {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.hori_line_1 {
+    margin-right: 5px;
+    width: 62px;
+    height: 1px;
+    color: #ccc;
+}
+
+.hori_line_2 {
+    background-color: black;
+    margin-left: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.word_about {
+    text-align: center;
+    letter-spacing: 0px;
+    color: #646464;
+    font-size: 16px;
+}
+
+/* get our new sellers */
+.seller_text {
+    font-size: 18px;
+    color: #353548;
+    font-weight: 500;
+    line-height: 1.22;
+    margin-top: 47px;
+}
+
+.for_email {
+    border-radius: 20px;
+    border: 1px solid #565656;
+    width: 233px;
+    height: 40px;
+}
+
+.for_submit {
+    border-radius: 20px;
+    background-color: #FF7B6D;
+    border: none;
+    width: 88px;
+    height: 40px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+}
+
+.sellr_main_div {
+    margin-bottom: 53px;
+    margin-top: 47px;
+}
+
+
+/* for responsive */
+@media only Screen and (max-width:745px) {
+    .for_facebook {
+        margin-right: 0px;
+    }
+
+    .footer_nav {
+        margin: 0px 5px;
+    }
+
+    .footer_logo {
+        margin-left: 10px;
+    }
+}
+
+@media only Screen and (max-width:655px) {
+    .footer_nav {
+        margin: 0px 2px;
+    }
+
+    .footer_logo {
+        width: 80px;
+        margin-left: 10px;
+    }
+
+    .first_child {
+        flex: 15%;
+    }
+
+    .secound_child {
+        flex: 65%;
+    }
+}
+
+@media only Screen and (max-width:590px) {
+    .footer_ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer_ul {
+        padding: 0;
+    }
+}
+
+@media only Screen and (max-width:279px) {
+    .first_child {
+        flex: 100%;
+    }
+
+    .secound_child {
+        flex: 100%;
+    }
+
+    .third_child {
+        flex: 100%;
+    }
+
+    .for_submit {
+        margin-top: 10px;
+    }
+}
