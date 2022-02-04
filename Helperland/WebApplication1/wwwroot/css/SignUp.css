@@ -1,0 +1,33 @@
+﻿.sign_up {
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+    margin-top: 31px;
+}
+
+.design_star {
+    display: flex;
+    align-items: center;
+}
+
+.hori_line_1 {
+    background-color: black;
+    margin-right: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.hori_line_2 {
+    background-color: black;
+    margin-left: 5px;
+    width: 62px;
+    height: 1px;
+    background-color: #ccc;
+}

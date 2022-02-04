@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "SignUp";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model RagisterModel;
+<link href="~/css/SignUp.css" rel="stylesheet" />
+<section style="margin-top: 100px;margin-bottom: 20px;">
+    <p class="sign_up">Sign Up</p>
+    <div class="design_star" style="margin-bottom: 20px;justify-content:center">
+        <hr class="hori_line_1">
+        <img src="~/img/separator.png" style="width:24px;height:25px;" alt="">
+        <hr class="hori_line_2">
+    </div>
+    <form method="post" asp-action="SignUp">
+        <div class="container" style="width: 50%;">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col-6">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" asp-for="FirstName"/>
+                        <label class="form-label" asp-for="FirstName">First name</label>
+                        <span  class="text-danger" asp-validation-for="FirstName"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-outline">
+                        <input type="text"  class="form-control" asp-for="LastName"/>
+                        <label class="form-label" asp-for="LastName">Last name</label>
+                        <span class="text-danger" asp-validation-for="LastName"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text"  class="form-control" asp-for="PhoneNumber"/>
+                <label class="form-label" asp-for="PhoneNumber">Phone Number</label>
+                <span  class="text-danger" asp-validation-for="PhoneNumber"></span>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <input type="email" asp-for="Email"  class="form-control" />
+                <label class="form-label" asp-for="Email" >Email address</label>
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" class="form-control" asp-for="PassWord" />
+                <label class="form-label" asp-for="PassWord" >Password</label>
+                <span class="text-danger" asp-validation-for="PassWord"></span>
+            </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password"  class="form-control" asp-for="ConfirmPassword" />
+                <label class="form-label" asp-for="ConfirmPassword">Confirm Password</label>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" checked>
+                <label class="custom-control-label" >Check this custom checkbox</label>
+            </div>
+            <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" checked>
+                <label class="custom-control-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eaque.</label>
+            </div>
+            <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" checked>
+                <label class="custom-control-label" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita libero numquam cumque eligendi ullam fugiat!</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4" asp-controller="Home" asp-action="SignUp">Sign up</button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fa fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fa fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fa fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fa fa-github"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</section>

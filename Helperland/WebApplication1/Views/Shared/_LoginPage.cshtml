@@ -1,0 +1,42 @@
+﻿@model LoginModel
+<section class="vh-100" style="display: none; margin-top: 150px;opacity:0.6" id="id01">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center" style="background-color: black">
+                        <form method="post" asp-controller="Home" asp-action="Login">
+                            <h3 class="mb-5" style="color: white;">Sign in</h3>
+                            <div class="form-outline mb-4">
+                                <input type="email" class="form-control form-control-lg" placeholder="Email" asp-for="Email">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" class="form-control form-control-lg" placeholder="Password" asp-for="Password">
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Checkbox -->
+                                <div class="form-check mb-0">
+                                    <label class="form-check-label" style="color: white;" asp-for="RememberMe">
+                                        <input class="form-check-input me-2" type="checkbox" asp-for="RememberMe" />
+                                        @Html.DisplayNameFor(m => m.RememberMe)
+                                    </label>
+                                </div>
+                                <a href="#!" class="text-body"><span style="color: white;">Forgot password?</span></a>
+                            </div>
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                                <p class="small fw-bold mt-2 pt-1 mb-0" style="color: white;">
+                                    Don't have an account? <a asp-controller="home" asp-action="SignUp" class="link-danger">Register</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+

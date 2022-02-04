@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Dot Net\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "F:\\Home-page\\Helperland\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "F:\\Dot Net\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "F:\\Home-page\\Helperland\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Dot Net\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "F:\\Home-page\\Helperland\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "F:\\Dot Net\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "F:\\Home-page\\Helperland\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\korat tirth\\.nuget\\packages\\",
-        "outputPath": "F:\\Dot Net\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "F:\\Home-page\\Helperland\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\korat tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,26 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.AspNetCore.Mvc.TagHelpers": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

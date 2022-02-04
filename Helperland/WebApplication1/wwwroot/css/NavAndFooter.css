@@ -103,6 +103,12 @@
     margin-bottom: 6px;
 }
 
+.profile_img {
+    width: 120px;
+    text-align: center;
+    margin: 0px 0px;
+}
+
 /* footer */
 .for_footer {
     background-color: #111;
