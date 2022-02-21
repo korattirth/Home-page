@@ -8,10 +8,10 @@ namespace WebApplication1.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage = "Required field")]
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Required field")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name ="Remember Me")]

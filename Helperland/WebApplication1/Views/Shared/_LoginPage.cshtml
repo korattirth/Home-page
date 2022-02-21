@@ -1,18 +1,20 @@
 ﻿@model LoginModel
-<section class="vh-100" style="display: none; margin-top: 150px;opacity:0.6" id="id01">
+<section style="display: none; margin-top: 150px;opacity:0.6" id="id01">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center" style="background-color: black">
-                        <form method="post" asp-controller="Home" asp-action="Login">
+                        <form method="post" asp-action="Login">
                             <h3 class="mb-5" style="color: white;">Sign in</h3>
                             <div class="form-outline mb-4">
-                                <input type="email" class="form-control form-control-lg" placeholder="Email" asp-for="Email">
-                                <span asp-validation-for="Email"></span>
+                                <input class="form-control form-control-lg" placeholder="Email" asp-for="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                @Html.ValidationMessageFor(m => m.Email)
                             </div>
                             <div class="form-outline mb-4">
-                                <input type="password" class="form-control form-control-lg" placeholder="Password" asp-for="Password">
+                                <input class="form-control form-control-lg" placeholder="Password" asp-for="Password">
                                 <span asp-validation-for="Password"></span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
@@ -37,6 +39,8 @@
             </div>
         </div>
     </div>
-
 </section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 

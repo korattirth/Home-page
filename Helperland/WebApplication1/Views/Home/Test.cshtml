@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication1.Models.ApplicationUser>
+<div style="margin:100px">
+    <form method="post" id="studenteForm">
+        <input id="num1" />
+        <input  id="num2"/>
+        <input type="button"  value="submit" id="btn"/>
+    </form>
+    @ViewBag.title
+    <div id="text1">
+
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            console.log("hii")
+            $("#btn").click(function () {
+                console.log("enter")
+                val1 = $("#num1").val();
+                console.log(val1)
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("test")",
+                    data: { "serch": $("#num1").val()},
+                    success: function (result) {
+                        if (result == true) {
+                            console.log("next")
+                        }
+                        else {
+                            console.log("inid")
+                        }
+                    },
+                    error: function () {
+                        console.log("error")
+                    }
+            })
+            })
+        })
+    </script>
+}

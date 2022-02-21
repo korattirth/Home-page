@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto" style="align-items: center;">
                     <li class="nav-item book_now">
-                        <a class="nav-link book_now_text" href="#"><span class="book_now_text">Book Now</span></a>
+                        <a class="nav-link book_now_text" asp-controller="BookNow" asp-action="BookNow"><span class="book_now_text">Book Now</span></a>
                     </li>
                     <li class="nav-item pri_ser" style="cursor:pointer">
                         <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
@@ -43,7 +43,7 @@
                     else
                     {
                     <li class="nav-item">
-                        <a class="nav-link login" style="cursor:pointer" id="lgn" href="#banner"><span class="login_text">LogIn</span></a>
+                        <a class="nav-link login" style="cursor:pointer" id="lgn" asp-controller="Home" asp-action="Index"><span class="login_text">LogIn</span></a>
                     </li>
                     }
                     <li class="nav-item pri_ser">

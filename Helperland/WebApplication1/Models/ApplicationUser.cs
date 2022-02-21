@@ -13,5 +13,7 @@ namespace WebApplication1.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        public int Zipcode { get; set; }
+        public int UserTypeId { get; set; }
     }
 }

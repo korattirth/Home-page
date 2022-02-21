@@ -84,7 +84,6 @@ F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.pdb
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.genruntimeconfig.cache
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.CopyComplete
-F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\SignUp.cshtml.g.cs
 F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Humanizer.dll
 F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -143,3 +142,6 @@ F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.DotNet
 F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 F:\Home-page\Helperland\WebApplication1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\BecomeAHelper.cshtml.g.cs
+F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignUp.cshtml.g.cs
+F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
+F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\BookNow\BookNow.cshtml.g.cs

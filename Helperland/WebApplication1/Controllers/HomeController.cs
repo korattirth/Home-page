@@ -48,65 +48,19 @@ namespace WebApplication1.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult SignUp()
+        public IActionResult Test()
         {
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignUp(RagisterModel model)
+        public Boolean Test(int serch)
         {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email,
-                                                 Email = model.Email ,
-                                                 PhoneNumber = model.PhoneNumber.ToString(),
-                                                 FirstName=model.FirstName,
-                                                 LastName = model.LastName};
-                var results =await _userManager.CreateAsync(user, model.PassWord);
-
-                if (results.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent:false);
-                    return RedirectToAction("Index");
-                }
-                foreach(var error in results.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var results = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-
-                if (results.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
-            }
-            return RedirectToAction("Index");
+            ApplicationUser applicationUser = _db.Users.Where(x => x.Zipcode == serch && x.UserTypeId == 2).FirstOrDefault();
+            if (applicationUser == null)
+                return false;
+            else
+                return true;
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index","Home");
-        }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
