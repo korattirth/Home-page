@@ -145,3 +145,4 @@ F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignUp.cshtml.g.cs
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
 F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\BookNow\BookNow.cshtml.g.cs
+F:\Home-page\Helperland\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs

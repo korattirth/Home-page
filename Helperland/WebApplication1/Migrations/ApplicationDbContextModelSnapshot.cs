@@ -229,6 +229,208 @@ namespace WebApplication1.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.ServiceRequestAddress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressLine1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PhoneNumber")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ServicesRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Zipcode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("city")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceRequestAddress");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.ServiceRequestExtra", b =>
+                {
+                    b.Property<int>("ServiceRequestExtraId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ServicesExtraId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesRequestId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ServiceRequestExtraId");
+
+                    b.ToTable("ServiceRequestExtras");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.ServicesRequest", b =>
+                {
+                    b.Property<int>("ServiceRequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comments")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("CraetedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Discount")
+                        .HasMaxLength(5)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<float>("ExtraHours")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("HasPets")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Haslssue")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("JobStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedBy")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentDone")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentDue")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PaymentTransactionrefNo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("RefundedAmount")
+                        .HasMaxLength(5)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("SPAcceptedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ServiceFrequency")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ServiceHourlyrate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ServiceStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("ServicesHours")
+                        .HasMaxLength(5)
+                        .HasColumnType("real");
+
+                    b.Property<int>("ServicesProviderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasMaxLength(5)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasMaxLength(5)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Zipcode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("uniqueidentifier")
+                        .HasColumnType("int");
+
+                    b.HasKey("ServiceRequestId");
+
+                    b.ToTable("ServicesRequests");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.UserAddress", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HouseNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("PhoneNumber")
+                        .HasColumnType("float");
+
+                    b.Property<int>("PostalCode")
+                        .HasMaxLength(7)
+                        .HasColumnType("int");
+
+                    b.Property<string>("StreetName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("addresses");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)

@@ -28,13 +28,20 @@ using WebApplication1.Models;
 #nullable disable
 #nullable restore
 #line 3 "F:\Home-page\Helperland\WebApplication1\Views\_ViewImports.cshtml"
+using WebApplication1.Models.ViewsModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "F:\Home-page\Helperland\WebApplication1\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6fa0b9da3e6a76e20b10016ae0a10fc0faf48726", @"/Views/Home/Test.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1ba678450cc0c3dc7efe5c361894255d6048aad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7392d525bcfa4b7e2860e13b18870f130186e01f", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Test : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<WebApplication1.Models.ApplicationUser>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -65,7 +72,7 @@ using Microsoft.AspNetCore.Identity;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div style=\"margin:100px\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fa0b9da3e6a76e20b10016ae0a10fc0faf487264078", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fa0b9da3e6a76e20b10016ae0a10fc0faf487264266", async() => {
                 WriteLiteral("\r\n        <input id=\"num1\" />\r\n        <input  id=\"num2\"/>\r\n        <input type=\"button\"  value=\"submit\" id=\"btn\"/>\r\n    ");
             }
             );

@@ -7,54 +7,7 @@
     }
     <link href="~/css/BecomeAHelper.css" rel="stylesheet" />
     <div class="back_img_banner" style="background-image: url(../img/becomservices.png);">
-        <nav class="navbar navbar-expand-xl navbar-dark nav_bar">
-            <img src="~/img/white-logo-transparent-background.png" class="main_logo">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto" style="align-items: center;">
-                    <li class="nav-item book_now">
-                        <a class="nav-link book_now_text" asp-controller="BookNow" asp-action="BookNow"><span class="book_now_text">Book Now</span></a>
-                    </li>
-                    <li class="nav-item pri_ser" style="cursor:pointer">
-                        <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
-                    </li>
 
-                    @if (signmanager.IsSignedIn(User))
-                    {
-                    <li class="nav-item">
-                        <form method="post" asp-controller="Home" asp-action="Logout">
-                            <button type="submit" class="nav-link login" style="width:auto;cursor:pointer;background-color:transparent">
-                                <span class="login_text">LogOut @User.Identity.Name</span>
-                            </button>
-                        </form>
-                    </li>
-                    }
-                    else
-                    {
-                    <li class="nav-item">
-                        <a class="nav-link login" style="cursor:pointer" id="lgn" asp-controller="Home" asp-action="Index"><span class="login_text">LogIn</span></a>
-                    </li>
-                    }
-                    <li class="nav-item pri_ser">
-                        <a class="nav-link" asp-controller="Home" asp-action="BecomeAHelper"><span class="login_text">Become a Helper</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link text-white"><img src="~/img/flag.png" style="margin-right:7px ;"><i class="fa fa-chevron-down" style="color: white;"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         <div style="border: 0.1px solid black;visibility: hidden;"></div>
 
         <div class="for_ragister">

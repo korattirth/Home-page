@@ -1,0 +1,1361 @@
+﻿@{ ViewData["Title"] = "Dashboard"; var count = 0;}
+@*@model List<ServicesRequest>*@
+@model dynamic
+<!-- middle section -->
+<section style="margin-top:75px;">
+    <div class="welcome_div">
+        <h1 class="welcome_text">Welcome,<span style="font-weight: bold;">Sandip!</span> </h1>
+    </div>
+    <div class="middle_section">
+        <div class="main_div">
+            <div class="perent_div">
+                <div class="child_div_1">
+                    <div>
+                        <div class="services servicesHighlights" id="menu_Dashboard">
+                            <p class="services_text">Dashboard</p>
+                        </div>
+                        <div class="services" id="menu_servicesHistory">
+                            <p class="services_text">Services History</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Services Schedule</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Favourite Pros</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Invoices</p>
+                        </div>
+                        <div class="services">
+                            <p class="services_text">Notification</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="child_div_2">
+                    <section id="dashboard">
+                        <div class="history_div">
+                            <h2>Current Services Request</h2>
+                            <button style="width: 200px;">Add New Services Request</button>
+                        </div>
+                        <div>
+                            <table class="w-100">
+                                <!-- row 1 -->
+                                <tr style="height: 50px;">
+                                    <th class="text-center text1">Services Id</th>
+                                    <th class="text-center text1">Service date</th>
+                                    <th class="text-center text1">Services Provider</th>
+                                    <th class="text-center text1">Payment</th>
+                                    <th class="text-center text1">Action</th>
+                                </tr>
+                                <!-- row 2 -->
+                                @foreach (var i in Model.serviceRequest)
+                                {
+                                    count++;
+                                    <tr id="forShowingDetails_@count">
+                                        <td class="text-center">
+                                            @i.ServiceRequestId
+                                        </td>
+                                        <td class="d-flex align-items-center flex-column">
+                                            <div class="col_1">
+                                                <img src="~/img/calculator.png" alt="">
+                                                <p class="text1">@i.ServiceStartDate</p>
+                                            </div>
+                                            <div class="col_1" style="margin-top: 7px;">
+                                                <img src="~/img//layer-712.png" alt="">
+                                                <p class="text2">12:00 - 18:00</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class=" d-flex justify-content-center align-items-center">
+                                                <div class="hat_img">
+                                                    <img src="~/img/forma-24.png" alt="">
+                                                </div>
+                                                <div>
+                                                    <p class="text2">Lyum Watson</p>
+                                                    <div class="star_div">
+                                                        <img src="~/img//forma-23.png" alt="">
+                                                        <img src="~/img//forma-23.png" alt="">
+                                                        <img src="~/img//forma-23.png" alt="">
+                                                        <img src="~/img//forma-23.png" alt="">
+                                                        <img src="~/img//forma-25.png" alt="">
+                                                        <p class="text2">4</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="font-weight-bold text-center m-0" style="color: #1d7a8c; font-size: 24px;">@i.TotalCost $</p>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <button class="RecheduleBtn btn">Reschedule</button>
+                                                <button class="cancelBtn btn btn-danger">Cancel</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @foreach (var j in Model.servicesAddress)
+                                    {
+                                        <div class="details_div position-absolute d-none" id="forShowingDetailsDiv_@count">
+                                            <div class="m-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <p style="padding-top: 10px; color: gray;" class="font-weight-bold">Services Details</p>
+                                                    <i class="fa fa-times p-1" style="cursor:pointer" aria-hidden="true" id="closeDiv_@count"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="dateTime">@i.ServiceStartDate</span>
+                                                    <span class="dateTime">08:00 -11.30</span>
+                                                    <p style="font-size: 14px;font-weight: 500;color: #646464;">Duration: 3.5hr</p>
+                                                </div>
+                                                <hr>
+                                                <div class="Services_details">
+                                                    <p>Services Id :@i.ServiceRequestId</p>
+                                                    <p>Extra : Inside Fridge</p>
+                                                    <p>Net Amount :<span>@i.TotalCost $</span> </p>
+                                                </div>
+                                                <hr>
+                                                <div class="Services_details">
+                                                    <p>Services Address : <span>@j.AddressLine1 @j.AddressLine2 @j.city</span></p>
+                                                    <p>Billing Address : <span>Same As Cleaning Address</span></p>
+                                                    <p>Phone : @j.PhoneNumber</p>
+                                                    <p>Email : @j.Email</p>
+                                                </div>
+                                                <hr>
+                                                <p class="mb-1 font-weight-bold" style="color: #646464;">Comments</p>
+                                                <div class="d-flex align-items-center Services_details">
+                                                    @if (i.HasPets == true)
+                                                    {
+                                                        <i class="fa fa-check-square mr-1" style="color:forestgreen"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-window-close mr-1" style="color: red;" aria-hidden="true"></i>
+                                                    }
+                                                    <p class="m-0 p-0">I don't Have pets at Home</p>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button class="RecheduleBtn btn">Reschedule</button>
+                                                    <button class="cancelBtn btn btn-danger" id="closeDiv1+@count">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    
+                                }
+
+                            </table>
+                        </div>
+                        <div class="page_num">
+                            <div class="left_page">
+                                <p class="text3">Show</p>
+                                <div>
+                                    <p class="text3">10</p>
+                                    <i class="fa fa-chevron-down" style="margin-left: 7px;"></i>
+                                </div>
+                                <p class="text3">entries</p>
+                                <p class="text3">Total Record: 55</p>
+                            </div>
+                            <div class="right_page">
+                                <div class="page_round">
+                                    <i class="fa fa-step-backward"></i>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-angle-left"></i>
+                                </div>
+                                <div class="page_round">
+                                    <p>1</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>2</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>3</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>4</p>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-step-forward"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="servicesHistory" class="d-none">
+                        <div class="history_div">
+                            <h2>Services History</h2>
+                            <button>Export</button>
+                        </div>
+                        <div>
+                            <table class="w-100">
+                                <!-- row-1 -->
+                                <tr class="row_1">
+                                    <th>
+                                        <div>
+                                            <p class="text1">Services Details</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Services Provider</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="display: flex;justify-content: left;">
+                                            <p class="text1">Payment</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Status</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <p class="text1">Rate SP</p>
+                                            <img src="./img/forma-21.png" alt="">
+                                        </div>
+                                    </th>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-3 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-4 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4" style="background-color: #ff6b6b;">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-5 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-6 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4" style="background-color: #ff6b6b;">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-7 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-8 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4" style="background-color: #ff6b6b;">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-9 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-10 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-2 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4" style="background-color: #ff6b6b;">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+
+                                <!-- row-2 -->
+                                <tr class="row_2">
+                                    <!-- colum-1 -->
+                                    <td class="colum_man">
+                                        <div class="col_1">
+                                            <img src="./img/calculator.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <div class="col_1" style="margin-top: 7px;">
+                                            <img src="./img//layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </td>
+                                    <!-- colum-11 -->
+                                    <td class="colum_man">
+                                        <div class="col_2">
+                                            <div class="hat_img">
+                                                <img src="./img/forma-24.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text2">Lyum Watson</p>
+                                                <div class="star_div">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-23.png" alt="">
+                                                    <img src="./img//forma-25.png" alt="">
+                                                    <p class="text2">4</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- colum-3 -->
+                                    <td class="colum_man">
+                                        <div class="col_3">
+                                            <i class="fa fa-eur doller_sign"></i>
+                                            <p>63</p>
+                                        </div>
+                                    </td>
+                                    <!-- coulm-4 -->
+                                    <td class="colum_man">
+                                        <div class="col_4" style="background-color: #ff6b6b;">
+                                            <p>Compleated</p>
+                                        </div>
+                                    </td>
+                                    <td class="colum_man">
+                                        <!-- colum-5 -->
+                                        <button class="Rate_button">Rate SP</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="page_num">
+                            <div class="left_page">
+                                <p class="text3">Show</p>
+                                <div>
+                                    <p class="text3">10</p>
+                                    <i class="fa fa-chevron-down" style="margin-left: 7px;"></i>
+                                </div>
+                                <p class="text3">entries</p>
+                                <p class="text3">Total Record: 55</p>
+                            </div>
+                            <div class="right_page">
+                                <div class="page_round">
+                                    <i class="fa fa-step-backward"></i>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-angle-left"></i>
+                                </div>
+                                <div class="page_round">
+                                    <p>1</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>2</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>3</p>
+                                </div>
+                                <div class="page_round">
+                                    <p>4</p>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                                <div class="page_round">
+                                    <i class="fa fa-step-forward"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* welcome text */
+    .welcome_div {
+        height: 119px;
+        margin-top: 70px;
+        background-color: #F9F9F9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcome_text {
+        font-family: Roboto;
+        font-size: 30px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 0.8;
+        letter-spacing: normal;
+        text-align: right;
+        color: #4f4f4f;
+    }
+    /* middle section */
+    .middle_section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 31px;
+        margin-bottom: 30px;
+    }
+
+    .main_div {
+        width: 1200px;
+    }
+
+    .perent_div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .child_div_1 {
+        flex: 20%;
+        background-color: #1d7a8c;
+        margin-right: 31px;
+    }
+
+    .child_div_2 {
+        flex: 70%;
+    }
+
+    .services {
+        border-bottom: 1px solid rgba(255, 255, 255,0.2);
+        height: 54px;
+    }
+
+    .servicesHighlights {
+        background-color: #146371;
+    }
+
+    .services_text {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 3.06;
+        letter-spacing: normal;
+        text-align: left;
+        color: white;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+    .history_div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* width: 840px; */
+    }
+
+        .history_div > h2 {
+            font-family: Roboto;
+            font-size: 22px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2.05;
+            letter-spacing: normal;
+            color: #646464;
+        }
+
+        .history_div > button {
+            width: 70px;
+            height: 34px;
+            border-radius: 17px;
+            background-color: #146371;
+            border: none;
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.71;
+            letter-spacing: normal;
+            text-align: center;
+            color: white;
+        }
+    /* table 1 */
+    .RecheduleBtn {
+        background-color: #146371;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-weight: 400;
+    }
+
+    tr {
+        border: 1px solid #9BA0A3;
+    }
+
+    .cancelBtn {
+        border-radius: 20px;
+    }
+    /* table 2 */
+    .table_res {
+        border: 1px solid #e1e1e1;
+    }
+
+    .row_1 {
+        border-bottom: 1px solid #e1e1e1;
+        height: 49px;
+    }
+
+    .row_2 {
+        border-bottom: 1px solid #e1e1e1;
+        height: 65px;
+    }
+
+    th > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        th > div > img {
+            width: 14px;
+            height: 14px;
+        }
+
+    .text1 {
+        margin-bottom: 0px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: normal;
+        text-align: left;
+        color: #646464;
+    }
+
+    .text2 {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: normal;
+        text-align: left;
+        color: #646464;
+        margin-bottom: 0;
+    }
+
+    .col_1 {
+        display: flex;
+        align-items: center;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .col_2 {
+        display: flex;
+        align-items: center;
+        width: 195px;
+        justify-content: center;
+    }
+
+    .hat_img {
+        height: 44px;
+        width: 44px;
+        border-radius: 22px;
+        border: 1px solid #aaa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 12px;
+    }
+
+    .star_div {
+        display: flex;
+        align-items: center;
+    }
+
+        .star_div > img {
+            width: 18px;
+            height: 16px;
+        }
+
+        .star_div > p {
+            margin-left: 4px;
+        }
+
+    .hat_img > img {
+        width: 30px;
+        height: 20px;
+    }
+
+    .col_2 > img {
+        margin-right: 4px;
+    }
+
+    .col_3 {
+        display: flex;
+        align-items: center;
+    }
+
+        .col_3 > i {
+            font-size: 20px;
+            color: #1d7a8c;
+        }
+
+        .col_3 > p {
+            font-family: Roboto;
+            font-size: 24px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-align: left;
+            color: #1d7a8c;
+            margin: 0;
+        }
+
+    .col_4 {
+        width: 82px;
+        height: 22px;
+        background-color: #67b644;
+    }
+
+        .col_4 > p {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.85;
+            letter-spacing: normal;
+            text-align: center;
+            color: white;
+        }
+
+    .Rate_button {
+        font-family: Roboto;
+        width: 70px;
+        height: 34px;
+        border-radius: 17px;
+        background-color: #6da9b5;
+        font-size: 14px;
+        line-height: 1.71;
+        color: white;
+        border: none;
+        text-align: center;
+    }
+
+    .colum_man {
+        padding: 9px 30px;
+    }
+    /* page number */
+    .page_num {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 840px;
+        margin-top: 9px;
+    }
+
+    .left_page, .right_page {
+        display: flex;
+        align-items: center;
+    }
+
+        .left_page > div {
+            display: flex;
+            width: 62px;
+            height: 38px;
+            border-radius: 4px;
+            border: solid 1px #E1E1E1;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 10px;
+        }
+
+    .text3 {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        text-align: center;
+        color: #646464;
+        margin: 0;
+    }
+
+    .page_round {
+        width: 38px;
+        height: 38px;
+        border-radius: 19px;
+        border: 1px solid #e1e1e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 1.5px;
+    }
+
+        .page_round > p {
+            margin: 0;
+            color: #777777;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.71;
+            letter-spacing: normal;
+        }
+
+        .page_round > i {
+            color: #777777;
+            font-weight: bold;
+        }
+
+    /* details */
+    .details_div {
+        background-color: rgb(236, 234, 234);
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%)
+    }
+
+    .dateTime {
+        font-size: 20px;
+        font-weight: 600;
+        color: #424242;
+    }
+
+    .Services_details p {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 14px;
+        font-weight: 500;
+        color: #646464;
+    }
+    /* for responsive */
+    @@media only Screen and (max-width:1267px) {
+        .history_div {
+            width: 100%;
+        }
+
+        .page_num {
+            width: 100%
+        }
+
+        .main_div {
+            width: 1000px;
+        }
+
+        .services {
+            height: auto;
+        }
+
+        .child_div_1 {
+            flex: 15%;
+            margin-right: 10px;
+        }
+    }
+
+    @@media only Screen and (max-width:1040px) {
+        .main_div {
+            width: 900px;
+        }
+
+        .colum_man {
+            padding: 9px 12px;
+        }
+    }
+
+    @@media only Screen and (max-width:935px) {
+        .main_div {
+            width: 800px;
+        }
+
+        .colum_man {
+            padding: 9px 5px;
+        }
+    }
+
+    @@media only Screen and (max-width:840px) {
+        .main_div {
+            width: 600px;
+        }
+
+        .table_res {
+            width: auto;
+            overflow-x: auto;
+            margin-right: 10px;
+        }
+
+        .child_div_2 {
+            width: 350px;
+        }
+
+        .page_num {
+            flex-direction: column;
+        }
+
+        .right_page {
+            margin: 15px 0px;
+        }
+    }
+
+    @@media only Screen and (max-width:767px) {
+        .nav_bar, .nav_bar.active {
+            height: auto;
+        }
+    }
+
+    @@media only Screen and (max-width:745px) {
+        .for_facebook {
+            margin-right: 0px;
+        }
+
+        .footer_nav {
+            margin: 0px 5px;
+        }
+
+        .footer_logo {
+            margin-left: 10px;
+        }
+
+        .main_div {
+            width: 600px;
+        }
+    }
+
+    @@media only Screen and (max-width:655px) {
+        .footer_nav {
+            margin: 0px 2px;
+        }
+
+        .footer_logo {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .first_child {
+            flex: 15%;
+        }
+
+        .secound_child {
+            flex: 65%;
+        }
+
+        .main_div {
+            width: 450px;
+        }
+
+        .services_text {
+            margin-right: 10px;
+        }
+
+        .child_div_2 {
+            width: 300px;
+        }
+    }
+
+    @@media only Screen and (max-width:590px) {
+        .footer_ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer_ul {
+            padding: 0;
+        }
+    }
+
+    @@media only Screen and (max-width:475px) {
+        .main_div {
+            width: 350px;
+        }
+
+        .child_div_1 {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @@media only Screen and (max-width:370px) {
+        .main_div {
+            width: 250px;
+        }
+
+        .child_div_2 {
+            width: 150px;
+        }
+
+        .page_round {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @@media only Screen and (max-width:285px) {
+        .main_div {
+            width: 200px;
+        }
+    }
+</style>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#menu_Dashboard").click(function () {
+                $("#servicesHistory").addClass("d-none");
+                $("#dashboard").removeClass("d-none")
+                $("#menu_Dashboard").addClass("servicesHighlights")
+                $("#menu_servicesHistory").removeClass("servicesHighlights")
+            })
+            $("#menu_servicesHistory").click(function () {
+                $("#servicesHistory").removeClass("d-none");
+                $("#dashboard").addClass("d-none")
+                $("#menu_Dashboard").removeClass("servicesHighlights")
+                $("#menu_servicesHistory").addClass("servicesHighlights")
+            })
+
+                $("#forShowingDetails_1").click(function () {
+                    $("#forShowingDetailsDiv_1").toggleClass("d-none")
+                })
+                $("#closeDiv_1").click(function () {
+                    $("#forShowingDetailsDiv_1").addClass("d-none")
+                })
+                $("#closeDiv1_1").click(function () {
+                    $("#forShowingDetailsDiv_1").addClass("d-none")
+                })
+        })
+        @*function showDetail() {
+            $.ajax({
+                type: "Get",
+                url: "@Url.Action("test1")",
+                success: function (results) {
+                    alert("hello")
+                },
+                error: function (err) {
+                    alert("error")
+                }
+            })
+        }*@
+    </script>
+}

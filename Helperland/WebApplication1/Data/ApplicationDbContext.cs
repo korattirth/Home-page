@@ -17,5 +17,9 @@ namespace WebApplication1.Data
         {
             base.OnModelCreating(builder);
         }
+        public virtual DbSet<UserAddress> addresses { get; set; }
+        public virtual DbSet<ServicesRequest> ServicesRequests { get; set; }
+        public virtual DbSet<ServiceRequestAddress> ServiceRequestAddress { get; set; }
+        public virtual DbSet<ServiceRequestExtra> ServiceRequestExtras { get; set; }
     }
 }

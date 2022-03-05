@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Book Now";
 }
+@model BookServicesViewModel
 <body>
     <div>
         <div>
@@ -13,322 +14,385 @@
         </div>
     </div>
 
-    <div class="main_container container">
-        <div class="left_container">
-            <div class="table_header">
-                <table>
-                    <th id="for_services" class="active" style="cursor: pointer;margin-left: 10px;">
-                        <p>Setup Services</p>
-                    </th>
-                    <th id="Schedule" style="cursor: pointer;">
-                        <p>Schedule And Plane</p>
-                    </th>
-                    <th id="Details" style="cursor: pointer;">
-                        <p>Your Details</p>
-                    </th>
-                    <th id="Payment" style="cursor: pointer;margin-right: 10px;">
-                        <p>Make Payment</p>
-                    </th>
-                </table>
-            </div>
-
-            <div style="position: relative;">
-                <!-- Setup Services -->
-                <section id="section_1">
-                    <p>Enter Your Postal Code</p>
-                    <div style="margin: 10px 0px;">
-                            <input type="text" placeholder="Enter Your Postal Code" id="input_zipcode">
-                            <button id="check_zipcode_btn" class="postal_button">Check Availability</button>
+    <div class="position-relative">
+        <div class="main_container container">
+            <form method="Post">
+                <div class="left_container">
+                    <div class="table_header">
+                        <table>
+                            <th id="sect1" class="active" style="cursor: pointer;margin-left: 10px;">
+                                <p>Setup Services</p>
+                            </th>
+                            <th id="sect2" style="cursor: pointer;">
+                                <p>Schedule And Plane</p>
+                            </th>
+                            <th id="sect3" style="cursor: pointer;">
+                                <p>Your Details</p>
+                            </th>
+                            <th id="sect4" style="cursor: pointer;margin-right: 10px;">
+                                <p>Make Payment</p>
+                            </th>
+                        </table>
                     </div>
-                    <span class="text-danger" id="forError"></span>
-                </section>
 
-                <!-- Schedule And Plane -->
-                <section id="section_2">
-                    <div class="date_time_div">
-                        <div style="margin-right: 25px;">
-                            <p style="font-weight: 500;margin-bottom: 15px;">When Do You Need the Cleaner ?</p>
-                            <input type="date" class="date_input">
-                            <input type="time">
+                    <div style="position: relative;">
+                        <!-- Setup Services -->
+                        <section id="section_1">
+                            <p>Enter Your Postal Code</p>
+                            <div style="margin: 10px 0px;">
+                                <input type="text" placeholder="Enter Your Postal Code" id="input_zipcode">
+                                <button id="check_zipcode_btn" class="postal_button">Check Availability</button>
+                            </div>
+                            <span class="text-danger" id="forError"></span>
+                        </section>
+
+                        <!-- Schedule And Plane -->
+                        <section id="section_2">
+
+                            <div class="date_time_div">
+                                <div style="margin-right: 25px;">
+                                    <p style="font-weight: 500;margin-bottom: 15px;">When Do You Need the Cleaner ?</p>
+                                    <div  class="d-flex">
+                                        <div>
+                                            <input type="date" class="date_input" asp-for="ServicesStartDate" id="SservicesStartDate"><br />
+                                            <span class="text-danger" id="SservicesStartDateValidation"></span>
+                                        </div>
+                                        <div>
+                                            <input type="time" asp-for="StartTime" id="StartTime"><br />
+                                            <span id="StartTimeValidation" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 500;margin-bottom: 15px;">How Long Do You Need the Cleaner to stay ?</p>
+                                    @*<input type="time" asp-for="ServicesHours">*@
+                                    <select asp-for="ServicesHours" id="ServicesHours">
+                                        <option value="3">3:00</option>
+                                        <option value="3.5">3:30</option>
+                                        <option value="4">4:00</option>
+                                        <option value="4.5">4:30</option>
+                                        <option value="5">5:00</option>
+                                        <option value="5.5">5:30</option>
+                                        <option value="6">6:00</option>
+                                        <option value="6.5">6:30</option>
+                                        <option value="7">7:00</option>
+                                        <option value="7.5">7:30</option>
+                                        <option value="8">8:00</option>
+                                        <option value="8.5">8:30</option>
+                                        <option value="9">9:00</option>
+                                        <option value="9.5">9:30</option>
+                                        <option value="10">10:00</option>
+                                        <option value="10.5">10:30</option>
+                                        <option value="11">11:00</option>
+                                        <option value="11.5">11:30</option>
+                                        <option value="12">12:00</option>
+                                        <option value="12.5">12:30</option>
+                                    </select><br />
+                                    <span id="ServicesHourValidation" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12" style="margin: 20px 0px;">
+                                        <h3 class="extra_ser">Extra Services</h3>
+                                    </div>
+
+                                    <div class="col extra_ser_img_main_div">
+                                        <input type="checkbox" id="Services1_cheak" hidden asp-for="InsideCabinet" />
+                                        <label for="Services1_cheak">
+                                            <div class="first_extra_ser_img" id="services_1">
+                                                <img src="~/img/forma-13.png" alt="">
+                                            </div>
+                                        </label>
+                                        <p class="extra_ser_text">Inside cabinets</p>
+                                    </div>
+                                    <div class="col extra_ser_img_main_div">
+                                        <input type="checkbox" id="Services2_cheak" hidden asp-for="InsideFridge" />
+                                        <label for="Services2_cheak">
+                                            <div class="first_extra_ser_img" id="services_2">
+                                                <img src="~/img/shape-1.png" alt="">
+                                            </div>
+                                        </label>
+                                        <p class="extra_ser_text">Inside fridge</p>
+                                    </div>
+                                    <div class="col extra_ser_img_main_div">
+                                        <input type="checkbox" id="Services3_cheak" hidden asp-for="InterioOven" />
+                                        <label for="Services3_cheak">
+                                            <div class="first_extra_ser_img" id="services_3">
+                                                <img src="~/img/forma-14.png" alt="">
+                                            </div>
+                                        </label>
+                                        <p class="extra_ser_text">Inside oven</p>
+                                    </div>
+                                    <div class="col extra_ser_img_main_div">
+                                        <input type="checkbox" id="Services4_cheak" hidden asp-for="LaundryWashDry" />
+                                        <label for="Services4_cheak">
+                                            <div class="first_extra_ser_img" id="services_4">
+                                                <img src="~/img/forma-14.png" alt="">
+                                            </div>
+                                        </label>
+                                        <p class="extra_ser_text">Laundry wash & dry</p>
+                                    </div>
+                                    <div class="col extra_ser_img_main_div">
+                                        <input type="checkbox" id="Services5_cheak" hidden asp-for="InteriorWindows" />
+                                        <label for="Services5_cheak">
+                                            <div class="first_extra_ser_img" id="services_5">
+                                                <img src="~/img/forma-13.png" alt="">
+                                            </div>
+                                        </label>
+                                        <p class="extra_ser_text">Insid cadinets</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div>
+                                <label style="font-weight: 500;">Comments</label><br>
+                                <textarea placeholder="Comments" style="width: 100%;" asp-for="Comments"></textarea>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <div>
+                                    <input class="form-check-input" type="checkbox" asp-for="HasPets" id="hasPets">
+                                    <label class="form-check-label" for="hasPets">I Have Pets At Home</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div style="display: flex;justify-content: end;">
+                                <div>
+                                    <button id="sec2_con_btn" class="section2_con_btn">Continue</button>
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <!-- Your Details -->
+                        <section id="section_3">
+                            <p style="font-weight: 500;">Enter Your Contact Details, so We can Serve you in better way</p>
+                            <!-- Address -->
+                            <div id="ForAddress"></div>
+                            <span id="AddressValidation" class="text-danger"></span><br />
+
+                            <button id="for_new_address">+Add New Address</button>
+
+                            <div id="new_address" style="display: none;">
+
+                                <form method="post" id="addressForm">
+                                    <span class="text-danger"  id="AddAddressValidation"> </span>
+                                    <div class="form_fild" style="margin-top: 20px;">
+                                        <div>
+                                            <label>Street Name</label><br>
+                                            <input type="text" id="StreetName"><br />
+                                            <span class="text-danger" id="StreetNameValidation" ></span>
+                                        </div>
+                                        <div>
+                                            <label>House Number</label><br>
+                                            <input type="text" id="HouseNumber"><br />
+                                            <span class="text-danger" id="HouseNumberValidation"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form_fild">
+                                        <div>
+                                            <label>Postal Code</label><br>
+                                            <input type="text" id="PostalCode"><br />
+                                            <span class="text-danger" id="PostalValidation"></span>
+                                        </div>
+                                        <div>
+                                            <label>City</label><br>
+                                            <input type="text" id="City"><br />
+                                            <span class="text-danger" id="CityValidation"></span>
+                                        </div>
+                                    </div>
+                                    <div class="phone">
+                                        <div>
+                                            <label>Phone Number</label><br>
+                                            <input type="number" id="PhoneNumber"><br />
+                                            <span class="text-danger" id="PhoneValidation"></span>
+                                        </div>
+                                    </div>
+                                    <div style="margin: 20px 0;" class="form_button">
+                                        <div>
+                                            <button type="reset" class="save" id="addreseeSaveBtn">Save</button>
+                                            <button id="cancel">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <p style="margin-top: 30px; font-weight: 500;">Your Favorite Services Provider</p>
+
+                            <hr>
+
+                            <p style="font-weight: 400;">You Can choose your favorite services provider from the below list</p>
+                            <div class="col extra_ser_img_main_div hat">
+                                <div class="Hat_img">
+                                    <img src="~/img/forma-24.png" alt="">
+                                </div>
+                                <p class="extra_ser_text">Sandip Patel</p>
+                                <div>
+                                    <button class="select">Select</button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div style="display: flex;justify-content: end;">
+                                <div>
+                                    <button class="section2_con_btn" id="sec3_con_btn">Continue</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Payment -->
+                        <section id="section_4">
+                            <p style="font-weight: 500;">Pay securely with helperland Payment gateway</p>
+
+                            <label for="">Promo code (Optional)</label><br>
+                            <input type="text" placeholder="Promo code (Optional)" style="font-weight: 400;margin-bottom: 15px;">
+                            <button class="apply">Apply</button>
+
+                            <hr>
+                            <div class="card_number_div">
+                                <div>
+                                    <i class="fa fa-credit-card"></i>
+                                    <input type="number" placeholder="Card Number">
+                                </div>
+                                <div>
+                                    <input type="number" placeholder="MM/YY" style="width: 100px;">
+                                    <input type="number" style="width: 60px;" placeholder="Cvv">
+                                </div>
+                            </div>
+
+                            <hr style="margin-top: 0;">
+                            <div class="For_cards">
+                                <p>Accepted cards</p>
+                                <i class="fa fa-cc-visa"></i>
+                                <i class="fa fa-cc-paypal"></i>
+                                <i class="fa fa-credit-card"></i>
+                            </div>
+                            <hr>
+                            <div class="form-check form-check-inline">
+                                <div>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptatibus consequatur sit laudantium esse facere?
+                                    </label>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div style="display: flex;justify-content: end;">
+                                <div>
+                                    <button asp-controller="bookNow" asp-action="bookservices" class="section2_con_btn" style="width: 200px;">Complete Booking</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="right_container">
+                    <div class="card">
+                        <div class="pament_card_header">
+                            <h3>Payment Summary</h3>
                         </div>
-                        <div>
-                            <p style="font-weight: 500;margin-bottom: 15px;">How Long Do You Need the Cleaner to stay ?</p>
-                            <input type="time">
+                        <div class="pament_card_Body">
+                            <p>07/03/2001</p>
+                            <p>Duration</p>
+                            <div class="for_div">
+                                <p>Basic</p>
+                                <p>3 Hrs</p>
+                            </div>
+                            <p style="font-weight:600">Extras</p>
+                            <div class="for_div" id="services_1_prices" style="display:none">
+                                <p>Inside Cabinets</p>
+                                <p>30 Min</p>
+                            </div>
+                            <div class="for_div" id="services_2_prices" style="display:none">
+                                <p>Inside Fridge</p>
+                                <p>30 Min</p>
+                            </div>
+                            <div class="for_div" id="services_3_prices" style="display:none">
+                                <p>Inside Oven</p>
+                                <p>30 Min</p>
+                            </div>
+                            <div class="for_div" id="services_4_prices" style="display:none">
+                                <p>Laundry wash & dry</p>
+                                <p>30 Min</p>
+                            </div>
+                            <div class="for_div" id="services_5_prices" style="display:none">
+                                <p>Interior windows</p>
+                                <p>30 Min</p>
+                            </div>
+                            <hr>
+                            <div class="for_div">
+                                <p style="font-weight: bold;color: #646464;">Total Services Time</p>
+                                <p style="font-weight: bold;color: #646464;" id="TotalTime">3 Hrs</p>
+                            </div>
+                            <hr>
+                            <div class="for_div">
+                                <p>Per Cleaning</p>
+                                <p id="ForBill1">54 $</p>
+                            </div>
+                            <hr>
+                            <div class="for_div">
+                                <p class="payment_text">Total Payment</p>
+                                <p class="payment_number" id="ForBill">54.00 $</p>
+                            </div>
+                            <p style="font-size: 13px;margin: 15px 0px;">According to $18 UStg no sales tax is calculated</p>
+                            <div class="for_div">
+                                <p style="font-weight: 500;">Effective prices</p>
+                                <p style="font-weight: 600;" id="ForBill2">74$</p>
+                            </div>
+                            <p style="font-size: 12px;">You will save 20% According to $35 a EStg</p>
+                        </div>
+                        <div class="payment_footer">
+                            <p>🙂See What is always included</p>
                         </div>
                     </div>
-                    <hr>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12" style="margin: 20px 0px;">
-                                <h3 class="extra_ser">Extra Services</h3>
-                            </div>
-
-                            <div class="col extra_ser_img_main_div">
-                                <div class="first_extra_ser_img" id="services_1">
-                                    <img src="~/img/forma-13.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Inside cabinets</p>
-                            </div>
-                            <div class="col extra_ser_img_main_div">
-                                <div class="first_extra_ser_img" id="services_2">
-                                    <img src="~/img/shape-1.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Inside fridge</p>
-                            </div>
-                            <div class="col extra_ser_img_main_div">
-                                <div class="first_extra_ser_img" id="services_3">
-                                    <img src="~/img/forma-14.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Inside oven</p>
-                            </div>
-                            <div class="col extra_ser_img_main_div">
-                                <div class="first_extra_ser_img" id="services_4">
-                                    <img src="~/img/forma-12.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Laundry wash & dry</p>
-                            </div>
-                            <div class="col extra_ser_img_main_div">
-                                <div class="first_extra_ser_img" id="services_5">
-                                    <img src="~/img/forma-13.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Insid cadinets</p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-
                     <div>
-                        <label style="font-weight: 500;">Comments</label><br>
-                        <textarea placeholder="Comments" style="width: 100%;"></textarea>
+                        <div class="question_text">
+                            <h4>Questions ?</h4>
+                        </div>
+                        <div style="display: flex">
+                            <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
+                            <p>What's Including In cleaning ?</p>
+                        </div>
+                        <hr>
+                        <div style="display: flex;">
+                            <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
+                            <p>Can I skip or reschedule booking ?</p>
+                        </div>
+                        <hr>
+                        <div style="display: flex;">
+                            <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
+                            <p>Can I skip or reschedule booking ?</p>
+                        </div><hr>
+                        <div style="display: flex;">
+                            <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
+                            <p>Test tatva ?</p>
+                        </div>
+                        <hr>
+                        <p style="color:#1d7a8c;font-weight: 500;margin-bottom: 20px;">For More Help</p>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <div>
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">I Have gets At Home</label>
-                        </div>
-                    </div>
-                    <hr>
-                    <div style="display: flex;justify-content: end;">
-                        <div>
-                            <button class="section2_con_btn">Continue</button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Your Details -->
-                <section id="section_3">
-                    <p style="font-weight: 500;">Enter Your Contact Details, so We can Serve you in better way</p>
-                    <!-- Group of material radios - option 1 -->
-                    <div class="radio_btn_div">
-                        <input type="radio" name="Address">
-                        <label style="margin: 0;padding: 15px;">
-                            <span>Address : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, illo?</span><br>
-                            <span> Phone Number : 7896541230</span>
-                        </label>
-                    </div>
-
-                    <!-- Group of material radios - option 2 -->
-                    <div class="radio_btn_div">
-                        <input type="radio" name="Address">
-                        <label style="margin: 0;padding: 15px;">
-                            <span>Address : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, illo?</span><br>
-                            <span> Phone Number : 7896541230</span>
-                        </label>
-                    </div>
-
-                    <button id="for_new_address">+Add New Address</button>
-
-                    <div id="new_address" style="display: none;">
-
-                        <div class="form_fild" style="margin-top: 20px;">
-                            <div>
-                                <label for="">Street Name</label><br>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <label for="">House Number</label><br>
-                                <input type="number">
-                            </div>
-                        </div>
-                        <div class="form_fild">
-                            <div>
-                                <label for="">Postal Code</label><br>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <label for="">City</label><br>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="phone">
-                            <div>
-                                <label>Phone Number</label><br>
-                                <input type="number" name="" id="">
-                            </div>
-                        </div>
-                        <div style="margin: 20px 0;" class="form_button">
-                            <div>
-                                <button class="save">Save</button>
-                                <button id="cancel">Cancel</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 30px; font-weight: 500;">Your Favorite Services Provider</p>
-
-                    <hr>
-
-                    <p style="font-weight: 400;">You Can choose your favorite services provider from the below list</p>
-                    <div class="col extra_ser_img_main_div hat">
-                        <div class="Hat_img">
-                            <img src="~/img/forma-24.png" alt="">
-                        </div>
-                        <p class="extra_ser_text">Sandip Patel</p>
-                        <div>
-                            <button class="select">Select</button>
-                        </div>
-                    </div>
-                    <hr>
-                    <div style="display: flex;justify-content: end;">
-                        <div>
-                            <button class="section2_con_btn">Continue</button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Payment -->
-                <section id="section_4">
-                    <p style="font-weight: 500;">Pay securely with helperland Payment gateway</p>
-
-                    <label for="">Promo code (Optional)</label><br>
-                    <input type="text" placeholder="Promo code (Optional)" style="font-weight: 400;margin-bottom: 15px;">
-                    <button class="apply">Apply</button>
-
-                    <hr>
-                    <div class="card_number_div">
-                        <div>
-                            <i class="fa fa-credit-card"></i>
-                            <input type="number" placeholder="Card Number">
-                        </div>
-                        <div>
-                            <input type="number" placeholder="MM/YY" style="width: 100px;">
-                            <input type="number" style="width: 60px;" placeholder="Cvv">
-                        </div>
-                    </div>
-
-                    <hr style="margin-top: 0;">
-                    <div class="For_cards">
-                        <p>Accepted cards</p>
-                        <i class="fa fa-cc-visa"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-credit-card"></i>
-                    </div>
-                    <hr>
-                    <div class="form-check form-check-inline">
-                        <div>
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptatibus consequatur sit laudantium esse facere?
-                            </label>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div style="display: flex;justify-content: end;">
-                        <div>
-                            <button class="section2_con_btn" style="width: 200px;">Complete Booking</button>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                 </div>  
+             </form>
         </div>
-        <div class="right_container">
-            <div class="card">
-                <div class="pament_card_header">
-                    <h3>Payment Summary</h3>
+     </div>
+        @if (ViewBag.IsSuccess == true) {
+            <div class="succcess_box shadow p-3 mb-5 bg-white rounded">
+                <div class="w-100 text-right">
+                    <a asp-controller="Dashboard" asp-action="showDetails"> <i class="fa fa-times pr-1" style="cursor:pointer" aria-hidden="true"></i></a>
                 </div>
-                <div class="pament_card_Body">
-                    <p>07/03/2001</p>
-                    <p>Duration</p>
-                    <div class="for_div">
-                        <p>Basic</p>
-                        <p>3 Hrs</p>
-                    </div>
-                    <p style="font-weight:600">Extras</p>
-                    <div class="for_div" id="services_1_prices" style="display:none">
-                        <p>Inside Cabinets</p>
-                        <p>30 Min</p>
-                    </div>
-                    <div class="for_div" id="services_2_prices" style="display:none">
-                        <p>Inside Fridge</p>
-                        <p>30 Min</p>
-                    </div>
-                    <div class="for_div" id="services_3_prices" style="display:none">
-                        <p>Inside Oven</p>
-                        <p>30 Min</p>
-                    </div>
-                    <div class="for_div" id="services_4_prices" style="display:none">
-                        <p>Laundry wash & dry</p>
-                        <p>30 Min</p>
-                    </div>
-                    <div class="for_div" id="services_5_prices" style="display:none">
-                        <p>Interior windows</p>
-                        <p>30 Min</p>
-                    </div>
-                    <hr>
-                    <div class="for_div">
-                        <p style="font-weight: bold;color: #646464;">Total Services Time</p>
-                        <p style="font-weight: bold;color: #646464;">3 Hrs</p>
-                    </div>
-                    <hr>
-                    <div class="for_div">
-                        <p>Per Cleaning</p>
-                        <p>75,00 $</p>
-                    </div>
-                    <hr>
-                    <div class="for_div">
-                        <p class="payment_text">Total Payment</p>
-                        <p class="payment_number">75,00 $</p>
-                    </div>
-                    <p style="font-size: 13px;margin: 15px 0px;">According to $18 UStg no sales tax is calculated</p>
-                    <div class="for_div">
-                        <p style="font-weight: 500;">Effective prices</p>
-                        <p style="font-weight: 600;">75,00 $</p>
-                    </div>
-                    <p style="font-size: 12px;">You will save 20% According to $35 a EStg</p>
+                <div class="success_logo">
+                    <i class="fa fa-check position-absolute top-50 start-50 curs text-white" style="transform: translate(-50%,-50%);" aria-hidden="true"></i>
                 </div>
-                <div class="payment_footer">
-                    <p>🙂See What is always included</p>
+                <div class="text-center m-4">
+                    <p>Booking Has Been Successfully Submitted</p>
+                    <p>Services request Id : <span>@ViewBag.serviceRequestId</span></p>
+                </div>
+                <div>
+                    <a asp-controller="Dashboard" asp-action="showDetails"><button class="section2_con_btn success_btn">Ok</button></a>
                 </div>
             </div>
-            <div>
-                <div class="question_text">
-                    <h4>Questions ?</h4>
-                </div>
-                <div style="display: flex">
-                    <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
-                    <p>What's Including In cleaning ?</p>
-                </div>
-                <hr>
-                <div style="display: flex;">
-                    <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
-                    <p>Can I skip or reschedule booking ?</p>
-                </div>
-                <hr>
-                <div style="display: flex;">
-                    <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
-                    <p>Can I skip or reschedule booking ?</p>
-                </div><hr>
-                <div style="display: flex;">
-                    <i class="fa fa-angle-right" style="font-size: 24px; margin-right: 7px;"></i>
-                    <p>Test tatva ?</p>
-                </div>
-                <hr>
-                <p style="color:#1d7a8c;font-weight: 500;margin-bottom: 20px;">For More Help</p>
-            </div>
-        </div>
-    </div>
+        }
 </body>
 
 <style>
@@ -666,6 +730,31 @@
             font-weight: 400;
         }
 
+@*Success box*@
+    .succcess_box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 230px;
+    }
+    .success_logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(123, 216, 123);
+        position: relative;
+    }
+    .success_btn {
+        width: 50px;
+        height: 30px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
     @@media only Screen and (max-width:1200px) {
         .phone {
             margin-left: 66px;
@@ -710,52 +799,123 @@
 
 @section scripts {
     <script>
+        var bill = 54;
+        var Totaltimes = 3;
+        function section1() {
+            $("#section_1").show(100);
+            $("#section_2").hide();
+            $("#section_3").hide();
+            $("#section_4").hide();
+            $("#sect1").addClass("active")
+            $("#sect2").removeClass("active")
+            $("#sect3").removeClass("active")
+            $("#sect4").removeClass("active")
+        }
+        function section2() {
+            $("#section_2").show(200);
+            $("#section_1").hide();
+            $("#section_3").hide();
+            $("#section_4").hide();
+            $("#sect2").addClass("active")
+            $("#sect3").removeClass("active")
+            $("#sect4").removeClass("active")
+            $("#sect1").addClass("active")
+        }
+        function section3() {
+            $("#section_3").show(200);
+            $("#section_1").hide();
+            $("#section_2").hide();
+            $("#section_4").hide();
+            $("#sect3").addClass("active")
+            $("#sect4").removeClass("active")
+            $("#sect1").addClass("active")
+            $("#sect2").addClass("active")
+        }
+        function section4() {
+            $("#section_4").show(200);
+            $("#section_1").hide();
+            $("#section_2").hide();
+            $("#section_3").hide();
+            $("#sect4").addClass("active")
+            $("#sect1").addClass("active")
+            $("#sect2").addClass("active")
+            $("#sect3").addClass("active")
+        }
+        function getAddress() {
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("GetAddresses")",
+
+                    success: function (result) {
+                        var obj = JSON.parse(result);
+                        $("#ForAddress").empty();
+                        for (var i = 0; i < obj.length; i++) {
+                            $("#ForAddress").append('<div class="radio_btn_div"><input type="radio" name="AddressId" value ="'+obj[i].AddressId+'"><label style="margin: 0;padding: 15px;"><div><span class="font-weight-bold mr-0.3">Address :</span><span>' + obj[i].HouseNumber + '</span><span class= ml-1>' + obj[i].StreetName + ',</span><span>' + obj[i].City + '</span><span class=ml-1>' + obj[i].PostalCode + '</span><br><span class="font-weight-bold mr-0.3">Phone Number :</span><span>' + obj[i].PhoneNumber + '</span></div> </label></div>')
+                        }
+                    },
+                    error: function () {
+                        alert("Somthing Went Wrong")
+                    }
+                })
+        }
+
+        var Services1_cheakd = document.getElementById("Services1_cheak");
+        var Services2_cheakd = document.getElementById("Services2_cheak");
+        var Services3_cheakd = document.getElementById("Services3_cheak");
+        var Services4_cheakd = document.getElementById("Services4_cheak");
+        var Services5_cheakd = document.getElementById("Services5_cheak");
+
         $(document).ready(function () {
-            $("#for_services").click(function () {
-                $("#section_1").show(100);
-                $("#section_2").hide();
-                $("#section_3").hide();
-                $("#section_4").hide();
-                $("#for_services").addClass("active")
-                $("#Schedule").removeClass("active")
-                $("#Details").removeClass("active")
-                $("#Payment").removeClass("active")
+            $("#cancel").click(function (event) {
+                event.preventDefault();
+            });
+            $("#sec2_con_btn").click(function (event) {
+                if ($("#SservicesStartDate").val() == "") {
+                    $("#SservicesStartDateValidation").text("Please Enter Date");
+                }
+                else if ($("#StartTime").val() == "") {
+                    $("#StartTimeValidation").text("Please Choose Time");
+                }
+                else if ($("#ServicesHours").val() == "") {
+                    $("#ServicesHourValidation").text("Please Choose Time");
+                }
+                else {
+                    section3();
+                }
+                event.preventDefault();
             })
-            $("#Schedule").click(function gotonext () {
-                $("#section_2").show(200);
-                $("#section_1").hide();
-                $("#section_3").hide();
-                $("#section_4").hide();
-                $("#Schedule").addClass("active")
-                $("#Details").removeClass("active")
-                $("#Payment").removeClass("active")
-                $("#for_services").addClass("active")
+            $("#sec3_con_btn").click(function (event) {
+                event.preventDefault();
+                if (!($("input[name=AddressId]").is(":checked"))) {
+                    $("#AddressValidation").text("Please Select Address");
+                }
+                else {
+                    section4();
+                }
             })
-            $("#Details").click(function () {
-                $("#section_3").show(200);
-                $("#section_1").hide();
-                $("#section_2").hide();
-                $("#section_4").hide();
-                $("#Details").addClass("active")
-                $("#Payment").removeClass("active")
-                $("#for_services").addClass("active")
-                $("#Schedule").addClass("active")
+            getAddress();
+            $("#sect1").click(function () {
+                if (!($("#input_zipcode").val() == "")) {
+                    section1();
+                }
             })
-            $("#Payment").click(function () {
-                $("#section_4").show(200);
-                $("#section_1").hide();
-                $("#section_2").hide();
-                $("#section_3").hide();
-                $("#Payment").addClass("active")
-                $("#for_services").addClass("active")
-                $("#Schedule").addClass("active")
-                $("#Details").addClass("active")
+            $("#sect2").click(function () {
+                if (!($("#SservicesStartDate").val() == "")) {
+                    section2();
+                }
             })
-            $("#for_new_address").click(function () {
+            $("#sect3").click(function () {
+                if (($("input[name=AddressId]").is(":checked"))) {
+                    section3();
+                }
+            })
+
+            $("#for_new_address").click(function (event) {
+                event.preventDefault();
                 $("#new_address").show(200);
                 $("#for_new_address").hide(100)
             })
-            $("#cancel").click(function () {
+            $("#cancel").click(function() {
                 $("#new_address").hide(200);
                 $("#for_new_address").show(100)
             })
@@ -763,31 +923,124 @@
             $("#services_1").click(function () {
                 $("#services_1").toggleClass("_border")
                 $("#services_1_prices").toggle();
+                if (Services1_cheakd.checked == false) {
+                    bill = bill + 9;
+                    Totaltimes = Totaltimes + 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
+                else {
+                    bill = bill - 9;
+                    Totaltimes = Totaltimes - 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
             })
             $("#services_2").click(function () {
                 $("#services_2").toggleClass("_border")
                 $("#services_2_prices").toggle();
+                if (Services2_cheakd.checked == false) {
+                    bill = bill + 9;
+                    Totaltimes = Totaltimes + 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
+                else {
+                    bill = bill - 9;
+                    Totaltimes = Totaltimes - 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
             })
             $("#services_3").click(function () {
                 $("#services_3").toggleClass("_border")
                 $("#services_3_prices").toggle();
+                if (Services3_cheakd.checked == false) {
+                    bill = bill + 9;
+                    Totaltimes = Totaltimes + 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
+                else {
+                    bill = bill - 9;
+                    Totaltimes = Totaltimes - 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
             })
             $("#services_4").click(function () {
                 $("#services_4").toggleClass("_border")
                 $("#services_4_prices").toggle();
+                if (Services4_cheakd.checked == false) {
+                    bill = bill + 9;
+                    Totaltimes = Totaltimes + 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
+                else {
+                    bill = bill - 9;
+                    Totaltimes = Totaltimes - 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
             })
             $("#services_5").click(function () {
                 $("#services_5").toggleClass("_border")
                 $("#services_5_prices").toggle();
+                if (Services5_cheakd.checked == false) {
+                    bill = bill + 9;
+                    Totaltimes = Totaltimes + 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
+                else {
+                    bill = bill - 9;
+                    Totaltimes = Totaltimes - 0.5
+                    $("#ForBill").text(bill + ".00 $ ")
+                    $("#ForBill1").text(bill + ".00 $ ")
+                    $("#ForBill2").text(bill + ".00 $ ")
+                    $("#TotalTime").text(Totaltimes + "Hrs")
+                    $("#ServicesHours").val(Totaltimes)
+                }
             })
-            $("#check_zipcode_btn").click(function () {
+
+            @*Cheak PinCode*@
+            $("#check_zipcode_btn").click(function (event) {
+                event.preventDefault();
                 $.ajax({
                     type: "Post",
                     url: "@Url.Action("CheakAvailablityOfZipcode")",
                     data: { "zipcode": $("#input_zipcode").val()},
                     success: function (result) {
                         if (result == true) {
-                            $("#Schedule").click();
+                            section2();
                         }
                         else {
                             if (result == false) {
@@ -803,6 +1056,51 @@
                     },
                     error: function () {
                         alert("Somthing Went Wrong");
+                    }
+                })
+            })
+
+            @*ADD Address*@
+            $("#addreseeSaveBtn").click(function (event) {
+                event.preventDefault();
+                if ($("#StreetName").val() == "") {
+                    $("#StreetNameValidation").text("Please Fill Strret Name Field")
+                }
+                if ($("#HouseNumber").val() == "") {
+                    $("#HouseNumberValidation").text("Please House Number Field")
+                }
+                if ($("#PhoneNumber").val() == "") {
+                    $("#PhoneValidation").text("Please Phone Number Field")
+                }
+                if ($("#PostalCode").val() == "") {
+                    $("#PostalValidation").text("Please postal code Field")
+                }
+                if ($("#City").val() == "") {
+                    $("#CityValidation").text("Please City Field")
+                }
+                var address = {
+                    StreetName: $("#StreetName").val(),
+                    HouseNumber: $("#HouseNumber").val(),
+                    PhoneNumber: $("#PhoneNumber").val(),
+                    PostalCode: $("#PostalCode").val(),
+                    City: $("#City").val(),
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("AddAddress")",
+                    data: address,
+                    success: function (result) {
+                        if (result == true) {
+                            getAddress();
+                            $("#cancel").click();
+                            alert("Address Add Successfully")
+                        }
+                        else {
+                            alert("Somthing Went Wrong");
+                        }
+                    },
+                    error: function (result) {
+                        console.log("error")
                     }
                 })
             })

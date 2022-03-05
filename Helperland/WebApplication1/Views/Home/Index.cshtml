@@ -9,87 +9,13 @@
 <body>
     <section>
         <div class="back_img_banner" id="banner">
-            <div class="nav_div">
-                <nav class="navbar navbar-expand-xl navbar-dark nav_bar">
-                    <img src="~/img/white-logo-transparent-background.png" class="main_logo">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav ml-auto" style="align-items: center;">
-
-
-                            @if (signmanager.IsSignedIn(User))
-                            {
-                                <li class="nav-item pri_ser" style="cursor:pointer">
-                                    <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <form method="post" asp-controller="Account" asp-action="Logout">
-                                        <button type="submit" class="nav-link login" style="width:auto;cursor:pointer;background-color:transparent">
-                                            <span class="login_text">LogOut @User.Identity.Name</span>
-                                        </button>
-                                    </form>
-                                </li>
-                                <li class="nav-item">
-                                    <form method="post">
-                                        <button style="background-color:transparent;border:none">
-                                            <div class="profile_img">
-                                                <img src="~/img/forma-22.png">
-                                                <i class="fa fa-chevron-down" style="color: white;"></i>
-                                            </div>
-                                        </button>
-                                    </form>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item book_now">
-                                    <a class="nav-link book_now_text" asp-controller="BookNow" asp-action="BookNow"><span class="book_now_text">Book Now</span></a>
-                                </li>
-                                <li class="nav-item pri_ser" style="cursor:pointer">
-                                    <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link login" style="cursor:pointer" asp-controller="Account" asp-action="Login"><span class="login_text">LogIn</span></a>
-                                </li>
-                                <li class="nav-item pri_ser">
-                                    <a class="nav-link" asp-controller="Home" asp-action="BecomeAHelper"><span class="login_text">Become a Helper</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-white"><img src="~/img/flag.png" style="margin-right:7px ;"><i class="fa fa-chevron-down" style="color: white;"></i></a>
-                                </li>
-                            }
-
-                        </ul>
-                    </div>
-                </nav>
-            </div>
             <div style="border: 0.1px solid black;visibility: hidden;"></div>
 
             <!-- Login -->
-            @if (ViewBag.forLogin == true)
+            @if (ViewBag.isLogin == true)
             {
-                <section class="vh-100" style="margin-top: 10px;opacity:0.6" id="id01">
-                    <div asp-validation-summary="All" class="text-danger"></div>
+                <section class="vh-100" style="margin-top: 10px;opacity:0.6">
+
                     <div class="container py-5 h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -101,13 +27,12 @@
                                         <form method="post" asp-action="Login">
                                             <h3 class="mb-5" style="color: white;">Sign in</h3>
                                             <div class="form-outline mb-4">
-                                                <input class="form-control form-control-lg" placeholder="Email" asp-for="Email">
-                                                <span asp-validation-for="Email" class="text-danger"></span>
-                                                @Html.ValidationMessageFor(m => m.Email)
+                                                <input class="form-control form-control-lg" placeholder="Email" asp-for="Email" id="login_email">
+                                                <span id="loginEmailValidation" class="text-danger"></span>
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input class="form-control form-control-lg" placeholder="Password" asp-for="Password">
-                                                <span asp-validation-for="Password"></span>
+                                                <input class="form-control form-control-lg" placeholder="Password" asp-for="Password" id="passWord">
+                                                <span class="text-danger" id="passWordValidation"></span>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <!-- Checkbox -->
@@ -120,7 +45,7 @@
                                                 <a href="#!" class="text-body"><span style="color: white;">Forgot password?</span></a>
                                             </div>
                                             <div class="text-center text-lg-start mt-4 pt-2">
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                                                <button class="btn btn-primary btn-lg btn-block" type="submit" >Login</button>
                                                 <p class="small fw-bold mt-2 pt-1 mb-0" style="color: white;">
                                                     Don't have an account? <a asp-controller="Account" asp-action="SignUp" class="link-danger">Register</a>
                                                 </p>
@@ -425,20 +350,33 @@
         </div>
     </section>
 </body>
-@section Scripts {
+@* Email Validate*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@section scripts {
     <script>
-        var login = document.getElementById("id01");
+@*        var email = document.getElementById("login_email");
+        function validateEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }*@
         $(document).ready(function () {
-            $("#lgn").click(function Login_btn() {
-                if (login.style.display == "none") {
-                    login.style.display = "Block"
+            $("#lgnBtn").click(function (event) {
+                event.preventDefault();
+                if ($("#login_email").val() == "") {
+                    $("#loginEmailValidation").text("Please Enter Email")
                 }
-                else {
-                    login.style.display = "none"
+                if ($("#passWord").val() == "") {
+                    $("#passWordValidation").text("Please Enter Password")
                 }
-            });
-            
+@*                if (!validateEmail(email)) {
+                    $("#loginEmailValidation").text("Please Enter valid Email")
+                }*@
+            })
+
         })
     </script>
 }
-

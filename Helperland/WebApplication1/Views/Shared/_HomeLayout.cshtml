@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> signmanager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,7 +17,89 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-expand-xl navbar-dark nav_bar">
+        <img src="~/img/white-logo-transparent-background.png" class="main_logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto" style="align-items: center;">
+
+
+                @if (signmanager.IsSignedIn(User))
+                {
+                    <li class="nav-item book_now">
+                        <a class="nav-link book_now_text" asp-controller="BookNow" asp-action="BookNow"><span class="book_now_text">Book Now</span></a>
+                    </li>
+                    <li class="nav-item pri_ser" style="cursor:pointer">
+                        <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button type="submit" class="nav-link login" style="width:auto;cursor:pointer;background-color:transparent">
+                                <span class="login_text">LogOut @User.Identity.Name</span>
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post">
+                            <button style="background-color:transparent;border:none">
+                                <div class="profile_img">
+                                    <img src="~/img/forma-22.png">
+                                    <i class="fa fa-chevron-down" style="color: white;"></i>
+                                </div>
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item book_now">
+                        <a class="nav-link book_now_text" asp-controller="BookNow" asp-action="BookNow"><span class="book_now_text">Book Now</span></a>
+                    </li>
+                    <li class="nav-item pri_ser" style="cursor:pointer">
+                        <a class="nav-link" asp-controller="Home" asp-action="prices"><span class="book_now_text">Prices & services</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact"><span class="book_now_text other_btn">Contact Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login" style="cursor:pointer" asp-controller="Account" asp-action="Login"><span class="login_text">LogIn</span></a>
+                    </li>
+                    <li class="nav-item pri_ser">
+                        <a class="nav-link" asp-controller="Home" asp-action="BecomeAHelper"><span class="login_text">Become a Helper</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white"><img src="~/img/flag.png" style="margin-right:7px ;"><i class="fa fa-chevron-down" style="color: white;"></i></a>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </nav>
+
     @RenderBody()
+
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

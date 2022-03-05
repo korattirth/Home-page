@@ -56,7 +56,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            ViewBag.forLogin = true;
+            ViewBag.isLogin = true;
             return View("~/Views/Home/Index.cshtml");
         }
         [HttpPost]
@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
 
                 if (results.Succeeded)
                 {
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("showdetails","Dashboard");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login");
             }

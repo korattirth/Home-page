@@ -10,8 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Controllers;
 using WebApplication1.Data;
+using WebApplication1.Helper;
 using WebApplication1.Models;
+using WebApplication1.Repository;
 
 namespace WebApplication1
 {
@@ -37,6 +40,8 @@ namespace WebApplication1
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredUniqueChars = 1;
             });
+            services.AddScoped<IUserServicesHelper, UserServicesHelper>();
+            services.AddScoped<IBookServicesRepository, IBookServicesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +62,6 @@ namespace WebApplication1
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
