@@ -39,11 +39,11 @@ namespace WebApplication1.Models
         [Required]
         public int PaymentDue { get; set; }
         public bool JobStatus { get; set; }
-        public int ServicesProviderId { get; set; }
+        public string ServicesProviderId { get; set; }
         public DateTime SPAcceptedDate { get; set; }
         [Required]
         public bool HasPets { get; set; }
-        public bool Status { get; set; }
+        public int Status { get; set; }
         [Required]
         public DateTime CraetedDate { get; set; }
         [Required]

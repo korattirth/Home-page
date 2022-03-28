@@ -21,5 +21,7 @@ namespace WebApplication1.Data
         public virtual DbSet<ServicesRequest> ServicesRequests { get; set; }
         public virtual DbSet<ServiceRequestAddress> ServiceRequestAddress { get; set; }
         public virtual DbSet<ServiceRequestExtra> ServiceRequestExtras { get; set; }
+        public virtual DbSet<ServicesRating> ServicesRatings { get; set; }
+        public virtual DbSet<FavoriteAndBlocked> FavoriteAndBlockeds { get; set; }
     }
 }

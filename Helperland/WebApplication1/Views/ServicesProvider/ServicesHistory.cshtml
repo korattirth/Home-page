@@ -1,0 +1,508 @@
+﻿@{ ViewData["Title"] = "Services History";}
+@model List<NewServicesRequestViewModel>
+<div class="welcome_div">
+    <h1 class="welcome_text">Welcome,<span style="font-weight: bold;">Sandip!</span> </h1>
+</div>
+<section>
+    <div class="middle_section">
+        <div class="main_div">
+            <div class="perent_div">
+                <div class="child_div_1">
+                    <div>
+                        <div class="services">
+                            <p class="services_text">Dashboard</p>
+                        </div>
+                        <a asp-controller="ServicesProvider" asp-action="NewServicesRequest" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text">New Services Request</p>
+                            </div>
+                        </a>
+                        <a asp-controller="ServicesProvider" asp-action="UpcomingServicesRequest" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text">Upcoming Services</p>
+                            </div>
+                        </a>
+                        <div class="services">
+                            <p class="services_text">Services Schedule</p>
+                        </div>
+                        <a asp-controller="ServicesProvider" asp-action="ServicesHistory" style="text-decoration:none">
+                            <div class="services" style="background-color:#146371">
+                                <p class="services_text">Services History</p>
+                            </div>
+                        </a>
+                        <a asp-controller="ServicesProvider" asp-action="MyRatting" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text">My Ratings</p>
+                            </div>
+                        </a>
+                        <a asp-controller="ServicesProvider" asp-action="BlockUser" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text">Block Customer</p>
+                            </div>
+                        </a>
+                        <div class="services">
+                            <p class="services_text">Invoices</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="child_div_2">
+                    <table class="w-100">
+                        <!-- row-1 -->
+                        <tr class="row_1">
+                            <th style="width:33.33%">
+                                <div>
+                                    <p class="text1">Services Id</p>
+                                    <img src="~/img/forma-21.png" alt="">
+                                </div>
+                            </th>
+                            <th style="width:33.33%">
+                                <div>
+                                    <p class="text1">Services Data</p>
+                                    <img src="~/img/forma-21.png" alt="">
+                                </div>
+                            </th>
+                            <th style="width:33.33%">
+                                <div style="display: flex;">
+                                    <p class="text1">Customer Details</p>
+                                    <img src="~/img/forma-21.png" alt="">
+                                </div>
+                            </th>
+                        </tr>
+                        <!-- row-2 -->
+                        @foreach (var item in Model)
+                        {
+                            <tr class="row_2">
+                                <!-- colum-1 -->
+                                <td onclick="openDetails(@item.ServicesRequestId)">
+                                    <p class="text2">@item.ServicesRequestId</p>
+                                </td>
+                                <!-- colum-2 -->
+                                <td onclick="openDetails(@item.ServicesRequestId)">
+                                    <div class="col_2">
+                                        <img src="~/img/calculator.png" alt="">
+                                        <p class="text1">@item.ServicesStartDate</p>
+                                    </div>
+                                    <div class="col_2" style="margin-top: 7px;">
+                                        <img src="~/img//layer-712.png" alt="">
+                                        <p class="text2">12:00 - 18:00</p>
+                                    </div>
+                                </td>
+                                <!-- colum-3 -->
+                                <td onclick="openDetails(@item.ServicesRequestId)">
+                                    <div class="col_3">
+                                        <p class="text2">@item.FIrstName @item.LastName</p>
+                                    </div>
+                                    <div class="col_3" style="margin-top: 7px;">
+                                        <img src="~/img//layer-719.png" alt="" style="height:25px">
+                                        <p class="text2"><span>@item.StreetName @item.HouseNumber</span><br /><span>@item.Postalcode @item.City</span> </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    @*Details Div*@
+                    <div class="details_div position-absolute d-none" id="Details">
+                        <div class="m-3">
+                            <div class="d-flex justify-content-between">
+                                <p style="padding-top: 10px; color: gray;" class="font-weight-bold">Services Details</p>
+                                <i class="fa fa-times p-1" style="cursor:pointer;" aria-hidden="true" onclick="closeDetails()"></i>
+                            </div>
+                            <div>
+                                <span class="dateTime" id="StartDate"></span>
+                                <span class="dateTime">08:00 -11.30</span>
+                                <p style="font-size: 14px;font-weight: 500;color: #646464;" id="duration">Duration: 3.5hr</p>
+                            </div>
+                            <hr>
+                            <div class="Services_details">
+                                <p>Services Id : <span id="ServicesId"></span></p>
+                                <p>Extra : <span id="Extra"></span></p>
+                                <p>Net Amount :<span id="Cost"> $</span> </p>
+                            </div>
+                            <hr>
+                            <div class="Services_details">
+                                <p>Services Address : <span id="Housenum" class="m-1"></span><span id="StreetName" class="m-1"></span><span id="CityName"></span></p>
+                                <p>Billing Address : <span>Same As Cleaning Address</span></p>
+                                <p>Phone :<span id="Phone"></span></p>
+                                <p>Email : <span id="Email"></span></p>
+                            </div>
+                            <hr>
+                            <p class="mb-1 font-weight-bold" style="color: #646464;">Comments : <span id="comment"></span></p>
+                            <div class="d-flex align-items-center Services_details">
+                                <div id="Forpets">
+                                    <i class="fa fa-check-square mr-1" style="color:forestgreen"></i>
+                                </div>
+                                <div id="ForpetsNot">
+                                    <i class="fa fa-window-close mr-1" style="color: red;" aria-hidden="true"></i>
+                                </div>
+                                <p class="m-0 p-0">I don't Have pets at Home</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* welcome text */
+    .welcome_div {
+        height: 119px;
+        margin-top: 70px;
+        background-color: #F9F9F9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcome_text {
+        font-family: Roboto;
+        font-size: 30px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 0.8;
+        letter-spacing: normal;
+        text-align: right;
+        color: #4f4f4f;
+    }
+    /* middle section */
+    .middle_section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_div {
+        width: 1200px;
+    }
+
+    .perent_div {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 31px;
+        margin-bottom: 30px;
+    }
+
+    .child_div_1 {
+        flex: 25%;
+        background-color: #1d7a8c;
+        margin-right: 31px;
+    }
+
+    .child_div_2 {
+        flex: 70%;
+    }
+
+    .services {
+        border-bottom: 1px solid rgba(255, 255, 255,0.2);
+        height: 54px;
+    }
+
+    .services_text {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 3.06;
+        letter-spacing: normal;
+        text-align: left;
+        color: white;
+        margin-left: 15px;
+    }
+    /* table */
+    table {
+        border: 1px solid #e1e1e1;
+    }
+
+    .row_1 {
+        border-bottom: 1px solid #e1e1e1;
+        height: 49px;
+    }
+
+    .row_2 {
+        border-bottom: 1px solid #e1e1e1;
+        height: 65px;
+    }
+
+    th > div {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+        th > div > img {
+            width: 14px;
+            height: 14px;
+        }
+
+    .text1 {
+        margin-bottom: 0px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: normal;
+        color: #646464;
+    }
+
+    .text2 {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: normal;
+        text-align: left;
+        color: #646464;
+        margin-bottom: 0;
+    }
+
+    .col_2 {
+        display: flex;
+        align-items: center;
+        width: 150px;
+        justify-content: left;
+    }
+
+        .col_2 > img,
+        .col_3 > img {
+            margin-right: 4px;
+        }
+
+    .col_3 {
+        display: flex;
+        width: 250px;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .acceept_button {
+        font-family: Roboto;
+        width: 80px;
+        height: 34px;
+        border-radius: 17px;
+        background-color: #146371;
+        color: white;
+        border: none;
+        text-align: center;
+    }
+    /* details */
+    .details_div {
+        background-color: rgb(236, 234, 234);
+        width: 500px;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+    }
+
+    .dateTime {
+        font-size: 20px;
+        font-weight: 600;
+        color: #424242;
+    }
+
+    .Services_details p {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 14px;
+        font-weight: 500;
+        color: #646464;
+    }
+    /* for responsive */
+    @@media only Screen and (max-width:1250px) {
+        .main_div {
+            width: 1000px;
+        }
+
+        .services {
+            height: auto;
+        }
+
+        .child_div_1 {
+            flex: 15%;
+            margin-right: 10px;
+        }
+    }
+
+    @@media only Screen and (max-width:1040px) {
+        .main_div {
+            width: 900px;
+        }
+
+        .colum_man {
+            padding: 9px 12px;
+        }
+    }
+
+    @@media only Screen and (max-width:935px) {
+        .main_div {
+            width: 800px;
+        }
+
+        .colum_man {
+            padding: 9px 0px;
+        }
+
+        .col_2 {
+            width: auto;
+        }
+
+        .col_3 {
+            width: auto;
+        }
+
+            .col_3 > img {
+                width: 22px;
+                height: 22px;
+            }
+    }
+
+    @@media only Screen and (max-width:820px) {
+        .main_div {
+            width: 700px;
+        }
+
+        .colum_man {
+            padding: 9px 5px;
+        }
+    }
+
+    @@media only Screen and (max-width:767px) {
+        .nav_bar, .nav_bar.active {
+            height: auto;
+        }
+    }
+
+    @@media only Screen and (max-width:745px) {
+        .for_facebook {
+            margin-right: 0px;
+        }
+
+        .footer_nav {
+            margin: 0px 5px;
+        }
+
+        .footer_logo {
+            margin-left: 10px;
+        }
+    }
+
+    @@media only Screen and (max-width:710px) {
+        .main_div {
+            width: 500px;
+        }
+
+        .child_div_2 {
+            overflow-x: auto;
+        }
+
+        .services_text {
+            text-align: center;
+        }
+
+        .services {
+            height: auto;
+        }
+
+        .colum_man {
+            padding: 9px 25px;
+        }
+    }
+
+    @@media only Screen and (max-width:655px) {
+        .footer_nav {
+            margin: 0px 2px;
+        }
+
+        .footer_logo {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .first_child {
+            flex: 15%;
+        }
+
+        .secound_child {
+            flex: 65%;
+        }
+    }
+
+    @@media only Screen and (max-width:590px) {
+        .footer_ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer_ul {
+            padding: 0;
+        }
+    }
+
+    @@media only Screen and (max-width:531px) {
+        .child_div_1, .child_div_2 {
+            flex: 100%;
+            margin-right: 0;
+        }
+
+        .main_div {
+            width: 350px;
+        }
+    }
+
+    @@media only Screen and (max-width:363px) {
+        .main_div {
+            width: 230px;
+        }
+    }
+</style>
+
+@section scripts{
+    <script>
+    function openDetails(servicesRequestId) {
+        $("#Details").removeClass("d-none")
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("GetServicesDetails")",
+            data: { "servicesRequestId": servicesRequestId },
+            success: function (result) {
+                $("#Housenum").text(result.houseNumber);
+                $("#StreetName").text(result.streetName);
+                $("#CityName").text(result.city);
+                $("#Phone").text(result.phoneNumber);
+                $("#Email").text(result.email);
+                $("#ServicesId").text(result.requestId);
+                $("#StartDate").text(result.servicesStartDate);
+                $("#Extra").text(result.extra);
+                $("#Cost").text(result.totalCost);
+                $("#duration").text(result.duration);
+                $("#comment").text(result.commemts);
+                $("#DetailAcceptBtn").val(servicesRequestId);
+                var pet = result.hasPets;
+                if (pet == true) {
+                    $("#Forpets").show();
+                    $("#ForpetsNot").hide();
+                }
+                else {
+                    $("#Forpets").hide();
+                    $("#ForpetsNot").show();
+                }
+            },
+            error: function () {
+                console.log("Somthing Went Wrong");
+            }
+        })
+    }
+    function closeDetails() {
+        $("#Details").addClass("d-none")
+    }
+    </script>
+}

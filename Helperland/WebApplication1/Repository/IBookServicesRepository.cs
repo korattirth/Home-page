@@ -31,7 +31,7 @@ namespace WebApplication1.Repository
             var userid = _userServicesHelper.getUserId();
             ServicesRequest sr = new ServicesRequest();
             sr.UserId = userid;
-            sr.ServiceStartDate = bookServicesViewModel.ServicesStartDate.ToShortDateString();
+            sr.ServiceStartDate = bookServicesViewModel.ServicesStartDate.ToString("yyyy/MM/dd");
             sr.Zipcode = bookServicesViewModel.zipCode;
             sr.ServiceHourlyrate = 18;
             sr.ServicesHours = float.Parse(bookServicesViewModel.ServicesHours);
@@ -39,6 +39,9 @@ namespace WebApplication1.Repository
             sr.CraetedDate = DateTime.Now;
             sr.ModifiedDate = DateTime.Now;
             sr.PaymentDone = true;
+            sr.Status = 0;
+            ApplicationUser user = _db.Users.Where(x => x.Id == userid).FirstOrDefault();
+            sr.Zipcode = user.Zipcode;
             sr.HasPets = bookServicesViewModel.HasPets;
             decimal totalCost = 54;
             double forExtra = 0;

@@ -93,5 +93,10 @@ namespace WebApplication1.Controllers
             ViewBag.IsSuccess = true;
             return View("BookNow");
         }
+        public IActionResult GetServicesProvider(int zipcode)
+        {
+           List< ApplicationUser> user = _db.Users.Where(x => x.UserTypeId == 2 && x.Zipcode == zipcode).ToList();
+            return Json(user);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -33,15 +34,25 @@ namespace WebApplication1
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders(); ;
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 8;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredUniqueChars = 1;
             });
+            services.AddMvc()
+            .AddSessionStateTempDataProvider();
+            services.AddSession();
             services.AddScoped<IUserServicesHelper, UserServicesHelper>();
             services.AddScoped<IBookServicesRepository, IBookServicesRepository>();
+            services.AddScoped<ServicesRequestRepository, ServicesRequestRepository>();
+            services.AddScoped<SendEmail, SendEmail>();
+            services.AddScoped<RandomPwGenarate, RandomPwGenarate>();
+            services.AddScoped<RatingsRepository, RatingsRepository>();
+            services.AddScoped<ServiceProviderRepository, ServiceProviderRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<AdminRepository, AdminRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +73,7 @@ namespace WebApplication1
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

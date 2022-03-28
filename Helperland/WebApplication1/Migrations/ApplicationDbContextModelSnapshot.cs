@@ -158,8 +158,14 @@ namespace WebApplication1.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("BankTokenId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateOfBirth")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -173,6 +179,12 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -182,6 +194,15 @@ namespace WebApplication1.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NationalityId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -194,13 +215,25 @@ namespace WebApplication1.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PaymentgatewayUserref")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ResetKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TokenNo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -210,10 +243,40 @@ namespace WebApplication1.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("UserProfilepicture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserTypeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("WorkWithPets")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Zipcode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("createdDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isOnline")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isRagisteredUser")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -227,6 +290,30 @@ namespace WebApplication1.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.FavoriteAndBlocked", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TargetUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FavoriteAndBlockeds");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ServiceRequestAddress", b =>
@@ -286,6 +373,51 @@ namespace WebApplication1.Migrations
                     b.ToTable("ServiceRequestExtras");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.ServicesRating", b =>
+                {
+                    b.Property<int>("RatingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Friendly")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("OnTimeArrival")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("QualityOfServices")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("RatingDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RatingFrom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RatingTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Ratings")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ServicesrequestId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("VisibleOnHomeScreen")
+                        .HasColumnType("bit");
+
+                    b.HasKey("RatingId");
+
+                    b.ToTable("ServicesRatings");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.ServicesRequest", b =>
                 {
                     b.Property<int>("ServiceRequestId")
@@ -316,14 +448,14 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("JobStatus")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifiedBy")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ModifiedBy")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PaymentDone")
-                        .HasColumnType("int");
+                    b.Property<bool>("PaymentDone")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PaymentDue")
                         .HasColumnType("int");
@@ -348,18 +480,19 @@ namespace WebApplication1.Migrations
                     b.Property<int>("ServiceId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ServiceStartDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ServiceStartDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("ServicesHours")
                         .HasMaxLength(5)
                         .HasColumnType("real");
 
-                    b.Property<int>("ServicesProviderId")
-                        .HasColumnType("int");
+                    b.Property<string>("ServicesProviderId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("SubTotal")
                         .HasMaxLength(5)

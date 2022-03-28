@@ -1,4 +1,6 @@
 ﻿@inject SignInManager<ApplicationUser> signmanager
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +9,11 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    @*Font awesome*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="~/css/NavAndFooter.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 
+    <link href="~/css/NavAndFooter.css" rel="stylesheet" />
     <!-- for text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +21,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg  navbar-dark nav_bar">
-        @if (signmanager.IsSignedIn(User))
-        {
-            <a asp-controller="Dashboard" asp-action="Index"><img src="~/img/white-logo-transparent-background.png" class="main_logo"></a>
-        }
-        else
-        {
-            <a asp-controller="Home" asp-action="Index"><img src="~/img/white-logo-transparent-background.png" class="main_logo"></a>
-        }
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/white-logo-transparent-background.png" class="main_logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,12 +52,35 @@
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a href="">
-                            <div class="profile_img">
+                        <div class="dropdown">
+                            <div class="profile_img" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="~/img/forma-22.png">
                                 <i class="fa fa-chevron-down" style="color: white;"></i>
                             </div>
-                        </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                @if (HttpContextAccessor.HttpContext.Session.GetInt32("usertypeId") == 3)
+                                {
+                                    <a class="dropdown-item" asp-controller="Dashboard" asp-action="showDetails">Dashboard</a>
+                                    <a class="dropdown-item" asp-controller="Dashboard" asp-action="MySetting">My Setting</a>
+                                }
+                                else if (HttpContextAccessor.HttpContext.Session.GetInt32("usertypeId") == 2)
+                                {
+                                    <a class="dropdown-item" asp-controller="ServicesProvider" asp-action="NewServicesRequest">Dashboard</a>
+                                    <a class="dropdown-item" asp-controller="ServicesProvider" asp-action="MySetting">My Setting</a>
+                                }
+                                else if(HttpContextAccessor.HttpContext.Session.GetInt32("usertypeId") == 1)
+                                {
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="ServiceRequest">Dashboard</a>
+                                }
+                                <a class="dropdown-item">
+                                    <form asp-controller="Account" asp-action="Logout">
+                                        <button type="submit" style="cursor: pointer; text-align: left; background-color: white; border: none; width: 100%">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </a>
+                            </div>
+                        </div>
                     </li>
                 }
                 else
@@ -127,10 +147,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-@*    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>*@
-@*    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>*@
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
     <script src="~/js/site.js"></script>
     @RenderSection("Scripts", required: false)
 

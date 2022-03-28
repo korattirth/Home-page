@@ -1,0 +1,520 @@
+﻿@{Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+@{ ViewData["Title"] = "User Management";}
+@model UserManagementAdminViewModel
+
+<body>
+    <section>
+        <div class="main_div">
+            <div class="sub_div">
+                <div class="perent_div">
+                    <div class="child1_div">
+                        <a asp-controller="Admin" asp-action="UserMangement" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text" style="color: #1fb6ff;">User Management</p>
+                            </div>
+                        </a>
+                        <a asp-controller="Admin" asp-action="ServiceRequest" style="text-decoration:none">
+                            <div class="services">
+                                <p class="services_text">Services Request</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="child2_div">
+                        <div class="user_management_div">
+                            <h2>User Management</h2>
+                            <div>
+                                <img src="~/img/vector-smart.png" alt="">
+                                <p>Add New Call Center</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <form asp-action="UserMangement" method="post">
+                                <div class="row">
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="text" placeholder="User Name" asp-for="serchUserManagement.UserName">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="text" placeholder="Postal Code" asp-for="serchUserManagement.PostalCode">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="text" placeholder="Phone Number" asp-for="serchUserManagement.PhoneNumber">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="email" placeholder="Email" asp-for="serchUserManagement.Email">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <select asp-for="serchUserManagement.Usertype">
+                                            <option value="0">User Type</option>
+                                            <option value="3">Customer</option>
+                                            <option value="2">Service Provider</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="date" asp-for="serchUserManagement.FromDate">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <input type="date" asp-for="serchUserManagement.ToDate">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center col-2">
+                                        <button type="submit" class="btn" style="background-color: #1fb6ff">Serch</button>
+                                        <button type="reset" asp-action="UserMangement" class="btn" style="background-color: #dedddd">Clear</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="table_res">
+                            <table id="Test">
+                                <!-- row-1 -->
+                                <thead>
+                                    <tr class="row_1">
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">User Name</p>
+                                                <img src="~/img/forma-21.png" alt="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">Role</p>
+                                                <img src="~/img/forma-21.png" alt="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col" style="justify-content: flex-start;">
+                                                <p class="text1">Date Of Registration</p>
+                                                <img src="~/img/forma-21.png" alt="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">User Type</p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">Phone</p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">PostalCode</p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="main_row_col">
+                                                <p class="text1">Status</p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div>
+                                                <p class="text1">Action</p>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <!-- row-2 -->
+                                <tbody>
+                                    @foreach (var item in Model.User)
+                                    {
+                                        <tr class="row_2">
+                                            <!-- colum-1 -->
+                                            <td class="colum_man">
+                                                <div>
+                                                    <p class="text2">@item.FirstName @item.LastName</p>
+                                                </div>
+                                            </td>
+                                            <!-- colum-2 -->
+                                            <td class="colum_man">
+                                                <div>
+                                                    <p class="text2"></p>
+                                                </div>
+                                            </td>
+                                            <!-- colum-2 -->
+                                            <td class="colum_man">
+                                                <div class="main_row_col">
+                                                    <img src="~/img/calculator.png" alt="">
+                                                    <p class="text1">@item.createdDate</p>
+                                                </div>
+                                            </td>
+                                            <!-- colum-3 -->
+                                            <td class="colum_man">
+                                                <div>
+                                                    @if (item.UserTypeId == 2)
+                                                    {
+                                                        <p class="text2">Services Provider</p>
+                                                    }
+                                                    else if (item.UserTypeId == 3)
+                                                    {
+                                                        <p class="text2">Customer</p>
+                                                    }
+                                                </div>
+                                            </td>
+                                            <!-- colum-3 -->
+                                            <td class="colum_man">
+                                                <div>
+                                                    <p class="text2">@item.PhoneNumber</p>
+                                                </div>
+                                            </td>
+                                            <td class="colum_man">
+                                                <div>
+                                                    <p class="text2">@item.Zipcode</p>
+                                                </div>
+                                            </td>
+                                            <!-- coulm-5 -->
+                                            <td class="colum_man">
+                                                <div class="main_row_col">
+                                                    @if (item.status == 1)
+                                                    {
+                                                        <p class="pending_btn bg-success">Active</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p class="pending_btn bg-danger">InActive</p>
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td class="colum_man">
+                                                <!-- colum-6 -->
+                                                <div class="main_row_col" style="position: relative;">
+                                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-v" aria-hidden="true" id="status_id2"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu">
+                                                        <button class="dropdown-item" value="@item.Id" onclick="Active(this.value)">Acive</button>
+                                                        <button class="dropdown-item" value="@item.Id" onclick="DeActive(this.value)">Deactive</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer_text">
+                <p>©2018 Helperland. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* middle section */
+        .main_div {
+            margin-top: 75px;
+        }
+
+        .perent_div {
+            display: flex;
+        }
+        /* left side */
+        .child1_div {
+            flex: 5%;
+            box-shadow: 2px 0 5.5px 0.5px rgba(0, 0, 0, 0.1);
+        }
+
+        .services {
+            border-bottom: 1px solid #e5e5e5;
+            height: auto;
+        }
+
+        .services_text {
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 3.06;
+            letter-spacing: normal;
+            text-align: left;
+            color: #646464;
+            margin: 0;
+            margin-left: 15px;
+        }
+
+        .more {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 24px;
+        }
+
+            .more > i {
+                margin-right: 10px;
+                color: #4F4F4F;
+            }
+
+        .rotate {
+            transform: rotate(90deg);
+        }
+
+        .back {
+            background-color: #f9f9f9;
+        }
+        /* right side */
+        .child2_div {
+            flex: 70%;
+            background-color: #f2f4f5;
+            padding: 0px 20px;
+        }
+
+        .user_management_div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            .user_management_div > h2 {
+                font-family: Roboto;
+                font-size: 22px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 2.05;
+                letter-spacing: normal;
+                color: #646464;
+            }
+
+            .user_management_div > div {
+                width: 160px;
+                height: 36px;
+                border-radius: 4px;
+                background-color: #1fb6ff;
+                display: flex;
+                align-items: center;
+            }
+
+                .user_management_div > div > p {
+                    border: none;
+                    font-family: Roboto;
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.71;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: white;
+                    margin: 0;
+                }
+
+        /* table */
+        table {
+            width: 100%;
+            background-color: white;
+        }
+
+        .row_1 {
+            height: 56px;
+            background-color: #E1E1E1;
+        }
+
+        .row_2 {
+            border-bottom: 1px solid #e1e1e1;
+            height: 65px;
+        }
+
+        .text1 {
+            margin-bottom: 0px;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: normal;
+            text-align: center;
+            color: #646464;
+        }
+
+        .main_row_col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .for_add {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hat_img {
+            height: 44px;
+            width: 44px;
+            border-radius: 22px;
+            border: 1px solid #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+        }
+
+        .star_div {
+            display: flex;
+            align-items: center;
+        }
+
+            .star_div > img {
+                width: 18px;
+                height: 16px;
+            }
+
+            .star_div > p {
+                margin-left: 4px;
+            }
+
+        .hat_img > img {
+            width: 30px;
+            height: 20px;
+        }
+
+        .text2 {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: normal;
+            text-align: center;
+            color: #646464;
+            margin-bottom: 0;
+        }
+
+        .active_btn,
+        .new_btn,
+        .pending_btn,
+        .cancel_btn {
+            width: 78px;
+            height: 24px;
+            background-color: #67B644;
+            color: white;
+            font-family: Robto;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .new_btn {
+            width: 45px;
+            background-color: #f2bb37;
+        }
+
+        .pending_btn {
+            width: 62px;
+            background-color: #1fb6ff;
+        }
+
+        .cancel_btn {
+            width: 72px;
+            background-color: #ff6b6b;
+        }
+
+        .fa-ellipsis-v {
+            width: 36px;
+            height: 36px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px
+        }
+
+        .lable_text {
+            font-size: 14px;
+            color: #646464;
+            font-weight: 500;
+        }
+
+        .footer_text {
+            margin: 24px 0px;
+        }
+
+            .footer_text > p {
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.71;
+                letter-spacing: normal;
+                text-align: left;
+                color: #a2a6a8;
+            }
+
+        @@media only Screen and (max-width:1432px) {
+            .input_1 {
+                width: 150px;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            .input_phone {
+                width: 100px;
+            }
+
+            .fixed_val {
+                width: 40px;
+            }
+        }
+
+        @@media only Screen and (max-width:870px) {
+            .for_form {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .input_1 {
+                width: 250px;
+                margin: 10px 0px;
+            }
+
+            .serch_btn, .clear_btn {
+                margin: 10px 0px;
+            }
+        }
+    </style>
+
+</body>
+
+@section scripts{ 
+    <script>
+    function Active(UserId) {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ActiveAccount")",
+            data: { "UserId": UserId },
+            success: function (result) {
+                location.reload();
+            },
+            error: function () {
+                console.log("Somthing Went Wrong");
+            }
+        })
+    }
+     function DeActive(UserId) {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("DeActiveAccount")",
+            data: { "UserId": UserId },
+            success: function (result) {
+                location.reload();
+            },
+            error: function () {
+                console.log("Somthing Went Wrong");
+            }
+        })
+    }
+    </script>
+}

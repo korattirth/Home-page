@@ -3,6 +3,7 @@
     background-color: #525252;
     opacity: 0.8;
     position: fixed;
+    z-index:10;
     top: 0;
     left: 0;
     right: 0;
@@ -14,7 +15,8 @@
         opacity: 0.8;
         box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
         height: 50px;
-        z-index: 1;
+        position: fixed;
+        z-index: 100;
     }
 
         .nav_bar.active > img {

@@ -47,20 +47,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public IActionResult Test()
-        {
-            return View();
-        }
-        [HttpPost]
-        public Boolean Test(int serch)
-        {
-            ApplicationUser applicationUser = _db.Users.Where(x => x.Zipcode == serch && x.UserTypeId == 2).FirstOrDefault();
-            if (applicationUser == null)
-                return false;
-            else
-                return true;
-        }
 
     }
 }

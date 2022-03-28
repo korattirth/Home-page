@@ -1,0 +1,85 @@
+﻿@inject SignInManager<ApplicationUser> signmanager
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrp link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <!-- for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="~/css/AdminNavbar.css" rel="stylesheet" />
+    <!-- css file -->
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <section style="position: relative;">
+            <nav class="navbar navbar-expand-md  navbar-dark nav_bar">
+                <h1>helperland</h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto" style="align-items: center;">
+                        <li class="nav-item">
+                            <a href="">
+                                <div class="profile_img">
+                                    <img src="~/img/forma-22.png" alt="">
+                                    <p>@User.Identity.Name</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <button style="width:auto;cursor:pointer;background-color:transparent;border:none" type="submit">
+                                    <i class='fa fa-power-off'></i>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+        @RenderBody()
+    </div>
+</body>
+</html>
+<!-- Bootstrp link -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    const nav = document.querySelector('.nav_bar')
+    window.addEventListener('scroll', fixnav)
+    function fixnav() {
+        if (window.scrollY > nav.offsetHeight + 200) {
+            nav.classList.add('active')
+        }
+        else {
+            nav.classList.remove('active')
+        }
+    }
+</script>
+@RenderSection("Scripts", required: false)
+
+

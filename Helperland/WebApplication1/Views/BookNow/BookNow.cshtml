@@ -225,17 +225,9 @@
                             <hr>
 
                             <p style="font-weight: 400;">You Can choose your favorite services provider from the below list</p>
-                            <div class="col extra_ser_img_main_div hat">
-                                <div class="Hat_img">
-                                    <img src="~/img/forma-24.png" alt="">
-                                </div>
-                                <p class="extra_ser_text">Sandip Patel</p>
-                                <div>
-                                    <button class="select">Select</button>
-                                </div>
-                            </div>
+                            <div id="provider" class="row"></div>
                             <hr>
-                            <div style="display: flex;justify-content: end;">
+                            <div class="" style="display: flex;justify-content: end;">
                                 <div>
                                     <button class="section2_con_btn" id="sec3_con_btn">Continue</button>
                                 </div>
@@ -294,7 +286,7 @@
                             <h3>Payment Summary</h3>
                         </div>
                         <div class="pament_card_Body">
-                            <p>07/03/2001</p>
+                            <p id="startDate"></p>
                             <p>Duration</p>
                             <div class="for_div">
                                 <p>Basic</p>
@@ -448,7 +440,7 @@
     }
 
     .left_container {
-        flex: 70%;
+        flex: 65%;
     }
 
     .right_container {
@@ -483,7 +475,7 @@
 
     .payment_number {
         color: #29626d;
-        font-size: 32px;
+        font-size: 28px;
         font-weight: bold;
     }
 
@@ -573,6 +565,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content:center
     }
 
     .first_extra_ser_img {
@@ -651,7 +644,7 @@
     }
 
     .phone {
-        margin-left: 130px;
+        margin-left: 110px;
     }
 
     .form_fild {
@@ -830,6 +823,21 @@
             $("#sect4").removeClass("active")
             $("#sect1").addClass("active")
             $("#sect2").addClass("active")
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetServicesProvider")",
+                data: { "zipcode": $("#input_zipcode").val() },
+                success: function (result) {
+                    console.log(result)
+                    $("#provider").empty();
+                    for (var i = 0; i < result.length; i++) {
+                        $("#provider").append('<div class="col-4 hat"><div class="d-flex flex-column justify-content-center"><div class="Hat_img"><img src="/img/forma-24.png" alt=""></div><p class="extra_ser_text">' + result[i].firstName + ' ' + result[i].lastName + '</p><div><button type="button" class="btn" style="background-color:#1d7a8c;color:white;width:150px" value=" '+ result[i].id +' " @*onclick = "AddFavorite(this.value)"*@>Select</button></div></div></div>')
+                    }
+                },
+                erroe: function () {
+                    console.log("Somthing Went Wrong");
+                }
+            })
         }
         function section4() {
             $("#section_4").show(200);
@@ -858,6 +866,18 @@
                     }
                 })
         }
+        @*function AddFavorite(para) {
+            alert(para)
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddFavorite")",
+                data: { "userId": para },
+                success: function (result) {
+                    
+                }
+            })
+
+        }*@
 
         var Services1_cheakd = document.getElementById("Services1_cheak");
         var Services2_cheakd = document.getElementById("Services2_cheak");
@@ -880,6 +900,7 @@
                     $("#ServicesHourValidation").text("Please Choose Time");
                 }
                 else {
+                     $("#startDate").text($("#SservicesStartDate").val());
                     section3();
                 }
                 event.preventDefault();

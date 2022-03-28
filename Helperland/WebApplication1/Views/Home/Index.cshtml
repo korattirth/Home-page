@@ -14,7 +14,7 @@
             <!-- Login -->
             @if (ViewBag.isLogin == true)
             {
-                <section class="vh-100" style="margin-top: 10px;opacity:0.6">
+                <section class="vh-100" style="margin-top: 10px;opacity:0.6" id="logindiv">
 
                     <div class="container py-5 h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -42,7 +42,7 @@
                                                         @Html.DisplayNameFor(m => m.RememberMe)
                                                     </label>
                                                 </div>
-                                                <a href="#!" class="text-body"><span style="color: white;">Forgot password?</span></a>
+                                                <p onclick="ForgetBox()" class="text-body m-0"><span style="color: white;cursor:pointer">Forgot password?</span></p>
                                             </div>
                                             <div class="text-center text-lg-start mt-4 pt-2">
                                                 <button class="btn btn-primary btn-lg btn-block" type="submit" >Login</button>
@@ -58,6 +58,29 @@
                     </div>
                 </section>
             }
+            @*Forget Password*@
+        <section id="forgetDiv" class="position-absolute d-none" style="top:50%;left:50%;transform:translate(-50%,-50%);background-color:whitesmoke">
+            <div class="p-3">
+                <div class="alert alert-success alert-dismissible d-none m-1" id="successDiv">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Success!</strong> Password Send You To Your Mail
+                </div>
+                <div class="alert alert-danger alert-dismissible d-none" id="ErrorDiv">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Danger!</strong> Please Enter Valid Email.
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p style="padding-top: 10px; color: gray;" class="font-weight-bold">Forget Password</p>
+                    <i class="fa fa-times p-1" style="cursor:pointer;" aria-hidden="true" id="closeDetails"></i>
+                </div>
+                <div>
+                    <label class="m-1">Email</label><br />
+                    <input type="email" id="forgetEmail" class="w-100" />
+                    <button class="btn w-100 mt-3" style="background-color: #146371;color:white" id="FindPassword">Next</button>
+                </div>
+
+            </div>
+        </section>
             <div class="perent_home_div">
                 <div class="child1_home">
                     <h1 class="child1_heading_text">Lorem ipsum  elit.</h1>
@@ -363,6 +386,10 @@
                 return true;
             }
         }*@
+        function ForgetBox() {
+            $("#forgetDiv").removeClass("d-none");
+            $("#logindiv").addClass("d-none")
+        }
         $(document).ready(function () {
             $("#lgnBtn").click(function (event) {
                 event.preventDefault();
@@ -372,9 +399,32 @@
                 if ($("#passWord").val() == "") {
                     $("#passWordValidation").text("Please Enter Password")
                 }
-@*                if (!validateEmail(email)) {
-                    $("#loginEmailValidation").text("Please Enter valid Email")
-                }*@
+            })
+            $("#closeDetails").click(function () {
+                $("#forgetDiv").addClass("d-none")
+            })
+            $("#FindPassword").click(function () {
+                if ($("#forgetEmail").val() != "") {
+                    $.ajax({
+                        type: "GET",
+                        url: "@Url.Action("ForgetPassword")",
+                        data: { "Email": $("#forgetEmail").val() },
+                        success: function (result) {
+                            if (result == true) {
+                                $("#successDiv").removeClass("d-none")
+                            }
+                            else {
+                                $("#ErrorDiv").removeClass("d-none")
+                            }
+                        },
+                        error: function () {
+                            console.log("Somthing Went Wrong")
+                        }
+                    })
+                }
+                else {
+                    $("#ErrorDiv").removeClass("d-none")
+                }
             })
 
         })
